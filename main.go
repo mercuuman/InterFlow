@@ -1,7 +1,10 @@
-package InterFlow
+package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	f, _ := generateToken()
+	fmt.Println(f)
 }
