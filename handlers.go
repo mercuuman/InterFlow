@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"log"
@@ -14,7 +13,7 @@ import (
 func loginGetHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("login.html") // путь к странице регистрации
 	if err != nil {
-		fmt.Println(err)
+		log.Printf("Error parsing login template: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
@@ -27,6 +26,8 @@ func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 		return
 	}
+	defer r.Body.Close()
+	w.Header().Set("Content-Type", "application/json") // Устанавливаем заголовок Content-Type
 	var req UserIn
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		log.Printf("Error decoding request body: %v", err)
@@ -49,10 +50,18 @@ func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		w.WriteHeader(status)
-		json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
+		if jsonErr := json.NewEncoder(w).Encode(map[string]string{"error": err.Error()}); jsonErr != nil {
+			log.Printf("Error encoding JSON response: %v", jsonErr)
+		}
 		return
 	}
+	log.Printf("User %s successfully registered", req.Username)
+	sendMail(req.Username, token)
+	response := map[string]string{
+		"message": "User registered successfully. Please check your email to complete the process.",
+	}
 
-	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(map[string]string{"token": token})
+	if jsonErr := json.NewEncoder(w).Encode(response); jsonErr != nil {
+		log.Printf("Error encoding success response: %v", jsonErr)
+	}
 }
