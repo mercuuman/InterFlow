@@ -1,2 +1,2 @@
-# front
-* f234
+# InterFlow
+* Клиентская часть web-приложения InterFlow

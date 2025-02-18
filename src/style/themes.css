@@ -1,0 +1,13 @@
+:root.theme-dark {
+
+}
+  
+:root.theme-light {
+
+}
+  
+@media (prefers-color-scheme: light) {
+    :root {
+
+    }
+}
