@@ -33,19 +33,21 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             filename: 'main.html',
-            template: './src/pages/main.html',
+            template: './src/pages/main.pug',
             chunks: ['vendor', 'main'],
             minify: false,
         }),
         new HtmlWebpackPlugin({
             filename: 'autorisation.html',
-            template: './src/pages/autorisation.html',
+            template: './src/pages/autorisation.pug',
             chunks: ['vendor', 'autorisation'],
+            minify: false,
         }),
         new HtmlWebpackPlugin({
             filename: 'registration.html',
-            template: './src/pages/registration.html',
+            template: './src/pages/registration.pug',
             chunks: ['vendor', 'registration'],
+            minify: false,
         })
     ],
     module: {
@@ -62,12 +64,16 @@ const config = {
             },
             {
                 test: /\.css$/i,
-                use: [MiniCssExtractPlugin.loader, {
+                use: [ MiniCssExtractPlugin.loader, {
                     loader: 'css-loader',
                     options: {
                       importLoaders: 1
                     }
                   }, 'postcss-loader'],
+            },
+            {
+                test: /\.pug$/,
+                use: ['pug-loader'],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -79,8 +85,8 @@ const config = {
             },
             {
                 test: /\.html$/i,
-                use: ['html-loader'],
-            },
+                type: 'html-loader',
+            }
         ],
     },
     optimization: { // ПРоблема с devServer т.к. много страниц & предотвращение дублирования кода
@@ -91,7 +97,7 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        config.plugins.push(new CleanWebpackPlugin());  
+        config.plugins.push(new CleanWebpackPlugin());
     } else {
         config.mode = 'development';
     }

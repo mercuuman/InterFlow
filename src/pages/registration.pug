@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+  main.content
+    section.registration
+      div.registration__content
+        form.form(name="registration_user" novalidate)
+          lable.form__lable
+            input.form__input(type="text" name="user_name" placeholder="nickname" required)
+          lable.form__lable
+            input.form__input(type="mail" name="user_mail" placeholder="mail" required)
+          lable.form__lable
+            input.form__input(type="password" name="user_password" placeholder="password" required)
+          button.form__button(type="submit" name="submit") sign up
+      div.registration__message
+        h2.message__title Подтвердите мыло
+        p.message__description
+          |МУЖИКИ Я С СЫНИШКОЙ БЕГУ НЕ ШМАЛЯЙТЕ ХРИСТА РАДИ⠀
+          |⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+          |⠀⠀⠀⠀⠀⠀⣶⣾⣷⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣤⣀⡀⢀⡤⠒⣦⠀
+          |⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠘⠀
+          |⠠⣴⡾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀
+          |⠀⠉⢭⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢉⣉⣀⣠⣤⣄⣀⡈⠉⢃⠀⠀⠀
+          |⠀⠀⠀⠉⠙⠉⠋⠛⠛⣛⣿⣿⣿⣿⠏⣁⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⡀⠁⡀⠀
+          |⠀⠀⠀⠀⠀⠀⠀⢀⣼⠛⠉⠹⢿⣭⠀⠀⠓⠛⢛⣻⣿⡟⠿⠟⣿⢿⣧⡀⣧⠀
+          |⠀⠀⠀⠀⠀⠀⠀⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠊⠉⠉⠀⠀⠊⠀⠀⠀⠇⢹⠆
+
