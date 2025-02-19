@@ -8,7 +8,7 @@ import (
 
 func sendMail(userEmail string, userToken string) error {
 	m := mail.NewMsg()
-	m.From("mail@gmail.com")
+	m.From("")
 	m.To(userEmail)
 	m.Subject("InterFlow Forum - Подтверждение регистрации \n")
 	link := fmt.Sprintf("https://forum.com/confirm?token=%s", userToken)
@@ -51,8 +51,8 @@ func sendMail(userEmail string, userToken string) error {
 		"smtp.gmail.com",
 		mail.WithPort(587),
 		mail.WithSMTPAuth(mail.SMTPAuthPlain),
-		mail.WithUsername("mail@gmail.com"),
-		mail.WithPassword("your_app_password"),
+		mail.WithUsername(""),
+		mail.WithPassword(""),
 		mail.WithTLSPolicy(mail.TLSMandatory),
 	)
 	if err != nil {

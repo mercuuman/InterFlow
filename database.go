@@ -14,6 +14,7 @@ import (
 var (
 	ErrEmailExists    = errors.New("email already exists")
 	ErrUsernameExists = errors.New("username already exists")
+	ErrInvalidToken   = errors.New("invalid or expired token")
 	db                *pgxpool.Pool
 )
 
@@ -99,4 +100,45 @@ func RegisterUser(user UserIn) (string, error) {
 		return "", fmt.Errorf("error committing transaction: %w", err)
 	}
 	return token, nil
+}
+
+// Verification by email блок
+func GetUserIDByToken(ctx context.Context, db *pgxpool.Pool, token string) (int, error) {
+	var userID int
+	query := `SELECT UserID FROM user_state WHERE token = $1 AND isVerified = FALSE`
+	err := db.QueryRow(ctx, query, token).Scan(&userID)
+	if errors.Is(err, pgx.ErrNoRows) {
+		return 0, ErrInvalidToken
+	}
+	return userID, err
+}
+func VerifyUser(ctx context.Context, db *pgxpool.Pool, userID int) error {
+	tx, err := db.BeginTx(ctx, pgx.TxOptions{}) // Используем BeginTx для совместимости с пулом
+	if err != nil {
+		return err
+	}
+	defer func() {
+		if err != nil {
+			tx.Rollback(ctx) // Откат только при ошибке
+		}
+	}()
+	updateUserQuery := `UPDATE users SET isVerified = TRUE WHERE id = $1`
+	if _, err := tx.Exec(ctx, updateUserQuery, userID); err != nil {
+		return err
+	}
+	deleteTokenQuery := `DELETE FROM user_state WHERE UserID = $1`
+	if _, err := tx.Exec(ctx, deleteTokenQuery, userID); err != nil {
+		return err
+	}
+
+	return tx.Commit(ctx)
+}
+func VerifyEmail(token string) (int, error) {
+	ctx := context.Background()
+	UserID, err := GetUserIDByToken(ctx, db, token)
+	if err != nil {
+		return 0, err
+	}
+	VerifyUser(ctx, db, UserID)
+	return UserID, nil
 }

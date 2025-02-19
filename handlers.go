@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"time"
 )
 
 // Страница регистрации login GET
@@ -64,4 +65,92 @@ func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
 	if jsonErr := json.NewEncoder(w).Encode(response); jsonErr != nil {
 		log.Printf("Error encoding success response: %v", jsonErr)
 	}
+}
+
+// !!! На доработке
+func VerifyEmailHandler(w http.ResponseWriter, r *http.Request) {
+	token := r.URL.Query().Get("token")
+	if token == "" {
+		http.Error(w, "Missing token", http.StatusBadRequest)
+		return
+	}
+	userID, err := VerifyEmail(token)
+	if err != nil {
+		status := http.StatusInternalServerError
+		msg := "Database error"
+		if errors.Is(err, ErrInvalidToken) {
+			status = http.StatusUnauthorized
+			msg = "Invalid or expired token"
+		}
+		http.Error(w, msg, status)
+		log.Printf("Error verifying email: %v", err)
+		return
+	}
+
+	accessToken, refreshToken, err := GenerateAccessRefresh(userID)
+	if err != nil {
+		http.Error(w, "Error generating tokens", http.StatusInternalServerError)
+		return
+	}
+
+	// Сохраняем refresh-токен в cookie
+	http.SetCookie(w, &http.Cookie{
+		Name:     "refresh_token",
+		Value:    refreshToken,
+		HttpOnly: true,
+		//Secure:   true,
+		SameSite: http.SameSiteStrictMode,
+		Path:     "/",
+	})
+
+	// Отправляем access-токен клиенту
+	json.NewEncoder(w).Encode(map[string]string{"access_token": accessToken})
+}
+
+// !!! на доработке
+func RefreshAccessTokenHandler(w http.ResponseWriter, r *http.Request) {
+	// Читаем refresh-токен из cookie
+	cookie, err := r.Cookie("refresh_token")
+	if err != nil {
+		http.Error(w, "Missing refresh token", http.StatusUnauthorized)
+		return
+	}
+
+	// Обновляем только `access`-токен
+	accessToken, err := RefreshAccessToken(cookie.Value)
+	if err != nil {
+		http.Error(w, "Invalid refresh token", http.StatusUnauthorized)
+		return
+	}
+
+	// Отправляем новый `access`-токен клиенту
+	json.NewEncoder(w).Encode(map[string]string{"access_token": accessToken})
+}
+func RefreshTokensHandler(w http.ResponseWriter, r *http.Request) {
+	// Читаем refresh-токен из cookie
+	cookie, err := r.Cookie("refresh_token")
+	if err != nil {
+		http.Error(w, "Missing refresh token", http.StatusUnauthorized)
+		return
+	}
+
+	// Обновляем токены
+	accessToken, refreshToken, err := RefreshTokens(cookie.Value)
+	if err != nil {
+		http.Error(w, "Invalid refresh token", http.StatusUnauthorized)
+		return
+	}
+
+	// Устанавливаем новый refresh-токен, если он изменился
+	if refreshToken != cookie.Value {
+		http.SetCookie(w, &http.Cookie{
+			Name:     "refresh_token",
+			Value:    refreshToken,
+			HttpOnly: true,
+			Expires:  time.Now().Add(7 * 24 * time.Hour),
+		})
+	}
+
+	// Отправляем новый access-токен клиенту
+	json.NewEncoder(w).Encode(map[string]string{"access_token": accessToken})
 }
