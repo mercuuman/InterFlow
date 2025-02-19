@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.form__lable {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  padding: 10px 5px;
+  background-color: inherit;
+  border: 2px solid;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.form__input,
+.form__input:focus,
+.form__input:focus-visible {
+  border-color: var(--form-accent-color);
+}
+
+.form__button {
+  width: 50%;
+  font-size: 20px;
+  background-color: var(--form-accent-color);
+  color: var(--form-button-text-color);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 5px;
+  margin-top: 10px;
+
+  align-self: center;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  background-color: var(--form-accent-color-hover);
+}
+

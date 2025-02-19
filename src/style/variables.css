@@ -1,3 +1,9 @@
 :root {
-    
+  --main-font: 'Inter';
+  --actien-font: '';
+  --main-color: #eee;
+  --highlight-color: #aaffe6;
+  --form-accent-color: #58b4ff;
+  --form-accent-color-hover: #75c1ff;
+  --form-button-text-color: #eee;
 }

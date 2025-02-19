@@ -1,0 +1,42 @@
+@import url(./variables.css);
+@import url(./global.css);
+@import url(./modules/form.css);
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration__content {
+  padding: 30px;
+  /* border-radius: 30px; */
+}
+
+.registration__message {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+.message__title {
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.message__description {
+  font-size: 30px;
+  text-wrap: no-wrap;
+}
+
+.registration__message.registration__message_visible {
+  visibility: visible;
+}
