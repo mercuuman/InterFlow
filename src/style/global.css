@@ -12,6 +12,14 @@
 
 }
 
+.logo {
+  font-family: var(--actien-font), sans-serif;
+}
+
 .hidden{
   display: none;
+}
+
+.logo__container {
+  width: 100%;
 }

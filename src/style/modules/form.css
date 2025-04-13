@@ -1,43 +1,75 @@
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px
+
 }
 
-.form__lable {
+.form__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px
+}
+
+.form__label {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .form__input {
-  padding: 10px 5px;
+  font-family: var(--main-font);
+  padding: 19px 5px 7px 15px;
+  z-index: 1;
   background-color: inherit;
   border: 2px solid;
   border-radius: 10px;
   font-size: 20px;
-}
-
-.form__input,
-.form__input:focus,
-.form__input:focus-visible {
   border-color: var(--form-accent-color);
 }
 
-.form__button {
-  width: 50%;
-  font-size: 20px;
-  background-color: var(--form-accent-color);
-  color: var(--form-button-text-color);
-  border: none;
-  border-radius: 10px;
-  padding: 8px 5px;
-  margin-top: 10px;
-
-  align-self: center;
-  cursor: pointer;
+.form__input:focus,
+.form__input:active,
+.form__input:focus-visible {
+  border-color: var(--form-accent-color-hover);
 }
 
-.form__button:hover {
+.form__placeholder {
+  position: absolute;
+  z-index: 0;
+  color: var(--form-placeholder-color)
+}
+
+.form__label .form__input:focus ~ .form__placeholder,
+.form__label .form__input:not(:placeholder-shown) ~ .form__placeholder {
+  font-size: 13px;
+  inset: 5px 5px;
+}
+
+.form__placeholder {
+  font-size: 21px;
+  inset: 15px 15px;
+  transition: font-size 0.28s ease-out, inset 0.28s ease-out;
+}
+
+.form__errors {
+  color: var(--form-error-color);
+}
+
+.form__button {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: var(--form-accent-color);
+  color: var(--main-button-color);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 3px;
+  align-self: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form__button:hover,
+.form__button:focus {
   background-color: var(--form-accent-color-hover);
 }
 

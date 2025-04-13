@@ -1,9 +1,22 @@
 :root {
   --main-font: 'Inter';
-  --actien-font: '';
-  --main-color: #eee;
-  --highlight-color: #aaffe6;
-  --form-accent-color: #58b4ff;
-  --form-accent-color-hover: #75c1ff;
-  --form-button-text-color: #eee;
+  --actien-font: 'Noto Serif';
+
+  --main-bg-color: #eee;
+  --actient-bg-color: #fff;
+  --main-color: #000;
+  --hidden-color: #bebebe;
+  --actien-color: #0C513F;
+  --highlight-color: #FFC501;
+  --dim-highlight-color: #FFF3CC;
+
+  --main-button-color: #fff;
+  --actient-button-color: #000;
+
+  --form-placeholder-color: #88bd9b;
+  --form-border-color: #ebebeb;
+  --form-accent-color: #109440;
+  --form-error-color: #ec1717;
+  --form-accent-color-hover: #12ab4a;
+  --form-button-text-color: #000;
 }

@@ -1,0 +1,91 @@
+@import url(./variables.css);
+@import url(./global.css);
+@import url(./modules/form.css);
+
+.page {
+  height: 100vh;
+}
+
+.page__wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-bg-color);
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 351px;
+  height: 100%;
+
+}
+
+.auth__logo {
+  padding:  0 10px 10px;
+  align-self: flex-start;
+  width: 70%;
+}
+
+.auth__content {
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--form-border-color);
+  background-color: var(--actient-bg-color);
+}
+
+.auth__control {
+  margin-top: 13px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.auth__button {
+  background-color: inherit;
+  border: none;
+  color: var(--form-accent-color);
+  cursor: pointer;
+}
+
+.auth__button:hover {
+  color: var(--form-accent-color-hover);
+}
+
+.confirm-mail {
+  display: none;
+}
+
+.confirm-mail__title {
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+.confirm-mail__description {
+  font-size: 30px;
+  text-wrap: no-wrap;
+}
+
+.confirm-mail.confirm-mail__message_visible {
+  visibility: visible;
+}
+
+.footer {
+  color: var(--hidden-color);
+  padding: 25px;
+  flex-grow: 0
+}
+
+.logo {
+  font-size: 40px;
+}

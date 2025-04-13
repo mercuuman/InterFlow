@@ -15,7 +15,9 @@ html {
 
 /* Sections
    ========================================================================== */
-
+*:focus-visible {
+  outline: none;
+}
 /**
  * Remove the margin in all browsers.
  */
@@ -37,10 +39,20 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ p,
+ ul,
+ ol,
+ li,
+ blockquote {
+   margin: 0;
+   padding: 0;
+ }
 
 /* Grouping content
    ========================================================================== */

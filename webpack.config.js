@@ -9,8 +9,7 @@ const config = {
     entry:  {
         vendor: './src/scripts/vendor.js',
         main: './src/scripts/main.js',
-        autorisation: './src/scripts/autorisation.js',
-        registration: './src/scripts/registration.js',
+        auth: './src/scripts/auth.js',
     },
     output: {
         filename: '[name].bundle.js',
@@ -38,17 +37,11 @@ const config = {
             minify: false,
         }),
         new HtmlWebpackPlugin({
-            filename: 'autorisation.html',
-            template: './src/pages/autorisation.pug',
-            chunks: ['vendor', 'autorisation'],
+            filename: 'auth.html',
+            template: './src/pages/auth/auth.pug',
+            chunks: ['vendor', 'auth'],
             minify: false,
         }),
-        new HtmlWebpackPlugin({
-            filename: 'registration.html',
-            template: './src/pages/registration.pug',
-            chunks: ['vendor', 'registration'],
-            minify: false,
-        })
     ],
     module: {
         rules: [
@@ -73,7 +66,10 @@ const config = {
             },
             {
                 test: /\.pug$/,
-                use: ['pug-loader'],
+                loader: 'pug-loader',
+                options: {
+                  self: true // Доступ к миксинам
+                }
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
