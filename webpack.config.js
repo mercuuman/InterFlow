@@ -7,9 +7,9 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
     entry:  {
-        vendor: './src/scripts/vendor.js',
-        main: './src/scripts/main.js',
-        auth: './src/scripts/auth.js',
+        vendor: './src/scripts/vendor.ts',
+        main: './src/scripts/index.ts',
+        auth: './src/scripts/auth.ts',
     },
     output: {
         filename: '[name].bundle.js',
@@ -56,6 +56,11 @@ const config = {
                 }
             },
             {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/i,
                 use: [ MiniCssExtractPlugin.loader, {
                     loader: 'css-loader',
@@ -85,7 +90,11 @@ const config = {
             }
         ],
     },
-    optimization: { // ПРоблема с devServer т.к. много страниц & предотвращение дублирования кода
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+    optimization: { // Проблема с devServer т.к. много страниц & предотвращение дублирования кода
         runtimeChunk: 'single',
     },
 };

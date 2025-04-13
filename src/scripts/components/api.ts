@@ -5,11 +5,11 @@ const config = {
   }
 }
 
-function checkStatus(res) {
+function checkStatus(res: Response) {
   return res.ok?res.json():Promise.reject(`Ошибка: ${res.status}`);
 }
 
-export const registrationUser = (requestConfig) => {
+export const registrationUser = (requestConfig: any) => {
   return fetch(`${config.baseUrl}/api/registration`, {
     method: 'POST',
     headers: config.headers,
