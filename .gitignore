@@ -1,3 +1,5 @@
 node_modules
 dist
 .editorconfig
+*.go
+go.sum

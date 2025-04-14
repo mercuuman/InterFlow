@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const config = {
     entry:  {
         vendor: './src/scripts/vendor.ts',
-        main: './src/scripts/index.ts',
+        index: './src/scripts/index.ts',
         auth: './src/scripts/auth.ts',
     },
     output: {
@@ -31,9 +31,9 @@ const config = {
             filename: '[name].css'
         }),
         new HtmlWebpackPlugin({
-            filename: 'main.html',
-            template: './src/pages/main.pug',
-            chunks: ['vendor', 'main'],
+            filename: 'index.html',
+            template: './src/pages/index.pug',
+            chunks: ['vendor', 'index'],
             minify: false,
         }),
         new HtmlWebpackPlugin({
