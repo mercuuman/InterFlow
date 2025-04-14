@@ -54,12 +54,12 @@
 .auth__button {
   background-color: inherit;
   border: none;
-  color: var(--form-accent-color);
-  cursor: pointer;
+  color: var(--form-accent-color)
 }
 
-.auth__button:hover {
-  color: var(--form-accent-color-hover);
+.auth__button:hover,
+.auth__button:focus {
+  color: var(--form-accent-color-hover)
 }
 
 .confirm-mail {

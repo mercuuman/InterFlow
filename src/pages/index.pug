@@ -3,8 +3,15 @@ extends layout.pug
 block header
   include ./modules/header.pug
 block content
-  h2 About project
-  p some info
-block footer
-  include ./modules/footer.pug
+  aside.navigator
+    .navigator__container
+      nav.navigator__navigtion
+        ol.navigator__list
+          li.navigator__list-item
+            a.link.navigator__link Home
+          li.navigator__list-item
+            a.link.navigator__link Main
+  section.posts
+
+
 

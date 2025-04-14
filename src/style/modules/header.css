@@ -1,0 +1,128 @@
+.header {
+  display: grid;
+  grid-template-columns: clamp(240px, 25%, 350px) 1fr;
+  grid-template-rows: 50px 80px;
+  justify-items: center;
+  align-items: end;
+  background-color: var(--highlight-bg-color);
+  padding: 10px;
+  grid-template-areas:
+  "logo control"
+  ". search";
+}
+
+.header__logo {
+  grid-area: logo;
+  width: calc(100% - 20px);
+}
+
+.header__control {
+  grid-area: control;
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+  gap: 30px;
+}
+
+.header__navigation {
+  flex-grow: 1;
+  align-self: flex-end;
+  padding: 0 0 0 10px;
+}
+
+.header__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.header__link {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  padding-left: 15px;
+  color: var(--main-text-color);
+}
+
+.header__link::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 8px;
+  left: 0;
+  border: 1px solid currentColor;
+  border-radius: 100%;
+}
+
+.header__link:hover::before {
+  background-color: currentColor;
+}
+
+.header__auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px
+}
+
+.header__button {
+  text-wrap: nowrap;
+  font-size: 18px;
+  border: none;
+  min-width: 75px;
+  min-height: 40px;
+  border-radius: 20px;
+}
+
+.header__button_login {
+  background-color: inherit;
+  transition: background-color 0.3s;
+
+}
+
+.header__button_login:hover {
+  background-color: var(--dim-highlight-color);
+}
+
+.header__button_signup {
+  background-color: var(--actien-color);
+}
+
+.header__search {
+  grid-area: search;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.header__search_container {
+  position: relative;
+  width: clamp(250px, 50%, 500px);
+  border: 2px solid var(--form-accent-color);
+  padding: 10px 5px 10px 15px;
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.header__button_clear {
+  position: absolute;
+  background-color: inherit;
+  border: none;
+  right: 0;
+  top: 8px;
+}
+
+.header__input {
+  font-size: 20px;
+  width: calc(100% - 40px);
+  border: none;
+  background-color: inherit;
+}
+
+.header__search_container:focus-within {
+  border-color: var(--actien-color-hover);
+}
+
+
+

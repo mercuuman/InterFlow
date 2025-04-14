@@ -1,11 +1,7 @@
-.form {
-
-}
 
 .form__content {
   display: flex;
   flex-direction: column;
-
   gap: 12px
 }
 
@@ -26,9 +22,7 @@
   border-color: var(--form-accent-color);
 }
 
-.form__input:focus,
-.form__input:active,
-.form__input:focus-visible {
+.form__input:focus {
   border-color: var(--form-accent-color-hover);
 }
 
@@ -58,18 +52,10 @@
   width: 100%;
   margin-top: 20px;
   font-size: 18px;
-  background-color: var(--form-accent-color);
-  color: var(--main-button-color);
   border: none;
   border-radius: 10px;
   padding: 10px 3px;
   align-self: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.form__button:hover,
-.form__button:focus {
-  background-color: var(--form-accent-color-hover);
-}
 

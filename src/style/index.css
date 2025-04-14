@@ -1,0 +1,15 @@
+@import url(./variables.css);
+@import url(./global.css);
+@import url(./modules/header.css);
+
+.page {
+  height: 100vh;
+}
+
+.page__wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+}
+

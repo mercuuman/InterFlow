@@ -39,6 +39,11 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
+ ol,
+ ul {
+  list-style: none;
+ }
+
  h1,
  h2,
  h3,
@@ -86,6 +91,7 @@ pre {
  */
 
 a {
+  padding: 0;
   background-color: transparent;
 }
 
@@ -178,6 +184,10 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+}
+
+input::placeholder {
+  color: var(--placeholder-color);
 }
 
 /**
