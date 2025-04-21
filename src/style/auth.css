@@ -1,6 +1,7 @@
 @import url(./variables.css);
 @import url(./global.css);
 @import url(./modules/form.css);
+@import url(./modules/footer.css);
 
 .page {
   height: 100vh;
@@ -28,7 +29,6 @@
   justify-content: center;
   max-width: 351px;
   height: 100%;
-
 }
 
 .auth__logo {
@@ -78,12 +78,6 @@
 
 .confirm-mail.confirm-mail__message_visible {
   visibility: visible;
-}
-
-.footer {
-  color: var(--hidden-color);
-  padding: 25px;
-  flex-grow: 0
 }
 
 .logo {

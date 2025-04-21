@@ -42,6 +42,7 @@
   margin: 0;
 }
 
+.link:focus-visible,
 .button:focus-visible {
   outline: 3px solid var(--outline-color);
 }
@@ -61,3 +62,19 @@
 
 }
 
+.font-weight_type_bold {
+  font-weight: 700;
+}
+
+.border-radius_type_small {
+  border-radius: 10px;
+}
+
+
+.tag__button {
+  font-size: 14px;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  color: var(--tag-text-color);
+}
