@@ -8,7 +8,7 @@ header.header
     nav.header__navigation
       ul.header__list
         li.header__list-item
-          a.link.header__link(href='https://yandex.ru/search/?clid=9582&text=stackoverflow&l10n=ru&lr=51') home
+          a.link.header__link(href='https://yandex.ru/search/?clid=9582&text=stackoverflow&l10n=ru&lr=51').header__link_type_active home
         li.header__list-item
           a.link.header__link about
         li.header__list-item
@@ -20,11 +20,7 @@ header.header
       else
         include ./profileAvatar.pug
         include ../popaps/profileControl.pug
-  .header__search
-    .header__search_container
-      input.input.header__input(type='text' placeholder='Search...')
-      button.button.header__button_clear
-        include ../svg/close.pug
+
 
 
 
