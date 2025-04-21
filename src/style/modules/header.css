@@ -1,0 +1,98 @@
+.header {
+  display: grid;
+  grid-template-columns: clamp(240px, 25%, 350px) 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: end;
+  background-color: var(--highlight-bg-color);
+  padding: 10px;
+  grid-template-areas:
+  "logo control";
+}
+
+.header__logo {
+  grid-area: logo;
+  width: calc(100% - 20px);
+  padding: 5px 0;
+}
+
+.header__control {
+  grid-area: control;
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+  gap: 30px;
+}
+
+.header__navigation {
+  flex-grow: 1;
+  align-self: flex-end;
+  padding: 0 0 0 10px;
+}
+
+.header__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.header__link {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  padding-left: 15px;
+  color: var(--main-text-color);
+}
+
+.header__link::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  left: 0;
+  border: 1px solid currentColor;
+  border-radius: 100%;
+}
+
+.header__link:hover::before {
+  background-color: currentColor;
+}
+
+.header__link_type_active::before {
+  background-color: currentColor;
+}
+
+.header__auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px
+}
+
+.header__button {
+  text-wrap: nowrap;
+  font-size: 18px;
+  border: none;
+  min-width: 75px;
+  min-height: 40px;
+  border-radius: 20px;
+}
+
+.header__button_login {
+  background-color: inherit;
+  transition: background-color 0.3s;
+
+}
+
+.header__button_login:hover {
+  background-color: var(--dim-highlight-color);
+}
+
+.header__button_signup {
+  background-color: var(--actien-color);
+}
+
+
+
+

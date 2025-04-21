@@ -1,7 +1,0 @@
-@import url(./variables.css);
-@import url(./global.css);
-
-.page {
-    display: flex;
-    flex-direction: column;
-}

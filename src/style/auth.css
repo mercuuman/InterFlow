@@ -1,6 +1,7 @@
 @import url(./variables.css);
 @import url(./global.css);
 @import url(./modules/form.css);
+@import url(./modules/footer.css);
 
 .page {
   height: 100vh;
@@ -28,7 +29,6 @@
   justify-content: center;
   max-width: 351px;
   height: 100%;
-
 }
 
 .auth__logo {
@@ -54,12 +54,12 @@
 .auth__button {
   background-color: inherit;
   border: none;
-  color: var(--form-accent-color);
-  cursor: pointer;
+  color: var(--form-accent-color)
 }
 
-.auth__button:hover {
-  color: var(--form-accent-color-hover);
+.auth__button:hover,
+.auth__button:focus {
+  color: var(--form-accent-color-hover)
 }
 
 .confirm-mail {
@@ -78,12 +78,6 @@
 
 .confirm-mail.confirm-mail__message_visible {
   visibility: visible;
-}
-
-.footer {
-  color: var(--hidden-color);
-  padding: 25px;
-  flex-grow: 0
 }
 
 .logo {

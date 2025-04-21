@@ -2,12 +2,12 @@ template#registration_form
   form.form(name=`registration_form` novalidate)
     .form__content
       label.form__label
-        input.form__input(type="text" name="user_name" placeholder=" " required)
+        input.input.form__input(type="text" name="user_name" placeholder=" " required)
         span.form__placeholder nickname
       label.form__label
-        input.form__input(type="mail" name="user_mail" placeholder=" " required)
+        input.input.form__input(type="mail" name="user_mail" placeholder=" " required)
         span.form__placeholder mail
       label.form__label
-        input.form__input(type="password" name="user_password" placeholder=" " required)
+        input.input.form__input(type="password" name="user_password" placeholder=" " required)
         span.form__placeholder password
-    button.form__button(type="submit" name="submit") sign up
+    button.button.form__button.button_color_green(type="submit" name="submit") sign up

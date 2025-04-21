@@ -1,2 +1,27 @@
+- const isLogin = true
+
 header.header
-  h1.header__logo 'Time flow'
+  .header__logo
+    a.link(href='./')
+      include ./logo.pug
+  .header__control
+    nav.header__navigation
+      ul.header__list
+        li.header__list-item
+          a.link.header__link(href='https://yandex.ru/search/?clid=9582&text=stackoverflow&l10n=ru&lr=51').header__link_type_active home
+        li.header__list-item
+          a.link.header__link about
+        li.header__list-item
+          a.link.header__link donate
+    .header__auth
+      if isLogin
+        button.button.header__button.header__button_login(type='button') log in
+        button.button.header__button.header__button_signup.button_color_green(type='button') sign up
+      else
+        include ./profileAvatar.pug
+        include ../popaps/profileControl.pug
+
+
+
+
+

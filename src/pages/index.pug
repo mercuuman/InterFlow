@@ -2,9 +2,74 @@ extends layout.pug
 
 block header
   include ./modules/header.pug
+
 block content
-  h2 About project
-  p some info
+  section.controls
+    if false
+      button.button.controls__button_type_nav(type='button') 123
+    .controls__search
+      include ./modules/search.pug
+    button.button.button_color_green.controls__button_type_create-topic(type='button') Create
+  aside.navigator
+    .navigator__container
+      nav.navigator__navigtion
+        ol.navigator__list
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Home
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Main
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Categories
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Another
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Groups
+  .content__wrapper
+    section.topics
+      .topics__list
+        .topic__container
+          .topic__outside
+            a.link.topic__owner(href='#owner') owner
+            ul.topic__tags-list
+              li.topic__tag
+                button.button.tag__button(type='button') @tag1
+              li.topic__tag
+                button.button.tag__button(type='button') @tag2
+          .topic__content
+            h2.topic__title
+              a.link.topic__link(href='#owner') Title
+            p.topic__description Очень длинное описание карточки, которое может не поместиться в отведённое пространство и должно быть обрезано с добавлением многоточия в конце.
+        .topic__container
+          .topic__outside
+            a.link.topic__owner(href='#owner') owner
+            ul.topic__tags-list
+              li.topic__tag
+                button.button.tag__button(type='button') @tag1
+              li.topic__tag
+                button.button.tag__button(type='button') @tag2
+          .topic__content
+            h2.topic__title
+              a.link.topic__link(href='#owner') Title
+            p.topic__description Очень длинное описание карточки, которое может не поместиться в отведённое пространство и должно быть обрезано с добавлением многоточия в конце.
+        .topic__container
+          .topic__outside
+            a.link.topic__owner(href='#owner') owner
+            ul.topic__tags-list
+              li.topic__tag
+                button.button.tag__button(type='button') @tag1
+              li.topic__tag
+                button.button.tag__button(type='button') @tag2
+          .topic__content
+            h2.topic__title
+              a.link.topic__link(href='#owner') Title
+            p.topic__description Очень длинное описание карточки, которое может не поместиться в отведённое пространство и должно быть обрезано с добавлением многоточия в конце.
+
 block footer
-  include ./modules/footer.pug
+  include ./modules/mainFooter.pug
+
+
+
+
+
+
 

@@ -23,3 +23,58 @@
 .logo__container {
   width: 100%;
 }
+
+.button,
+.link {
+  cursor: pointer;
+}
+
+.button,
+.input,
+.link {
+  font-family: var(--main-font);
+}
+
+.link {
+  color: var(--main-color);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--outline-color);
+}
+
+.button_color_green {
+  background-color: var(--form-accent-color);
+  color: var(--main-button-color);
+  transition: background-color 0.3s;
+}
+
+.button_color_green:hover,
+.button_color_green:focus {
+  background-color: var(--form-accent-color-hover);
+}
+
+.button_color_yellow {
+
+}
+
+.font-weight_type_bold {
+  font-weight: 700;
+}
+
+.border-radius_type_small {
+  border-radius: 10px;
+}
+
+
+.tag__button {
+  font-size: 14px;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  color: var(--tag-text-color);
+}

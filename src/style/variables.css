@@ -1,14 +1,25 @@
 :root {
-  --main-font: 'Inter';
+  --main-font: 'Inter', sans-serif;
   --actien-font: 'Noto Serif';
 
-  --main-bg-color: #eee;
+  --main-bg-color: #f1f1f1;
   --actient-bg-color: #fff;
+  --highlight-bg-color: #FFC501;
   --main-color: #000;
   --hidden-color: #bebebe;
-  --actien-color: #0C513F;
+  --actien-color: #109440;
+  --actien-color-hover: #12ab4a;
   --highlight-color: #FFC501;
-  --dim-highlight-color: #FFF3CC;
+  --dim-highlight-color: #ffdb63;
+
+  --main-text-color: #000;
+  --main-text-color-hover: #292929;
+  --actient-text-color: #fff;
+
+  --button-main-bg-color: #109440;
+  --button-main-bg-color-hover: #12ab4a;
+  --button-additional-bg-color: #ffc501;
+  --button-additional-bg-color-hover: #ffdb63;
 
   --main-button-color: #fff;
   --actient-button-color: #000;
@@ -19,4 +30,18 @@
   --form-error-color: #ec1717;
   --form-accent-color-hover: #12ab4a;
   --form-button-text-color: #000;
+
+  --icon-close-color: #109440;
+  --icon-close-color-hover: #12ab4a;
+  --placeholder-color: #88bd9b;
+  --outline-color: #000000;
+
+  --navigation-el-background-color: #ffc501;
+  --navigation-el-background-color-hover: #ffdb63;
+  --topic-list-border-color: #ffc501;
+  --topic-description-color: #303030;
+  --topic-catalog-bg-color: #ffdb63;
+  /* --topic-catalog-color:  */
+
+  --tag-text-color: #109440;
 }
