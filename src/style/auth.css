@@ -8,10 +8,10 @@
 }
 
 .page__wrapper {
+  display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -24,36 +24,35 @@
 
 .auth {
   display: flex;
+  max-width: 350px;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 351px;
-  height: 100%;
 }
 
 .auth__logo {
-  padding:  0 10px 10px;
-  align-self: flex-start;
   width: 70%;
+  padding: 0 10px 10px;
+  align-self: flex-start;
 }
 
 .auth__content {
   padding: 30px;
-  border-radius: 15px;
   border: 1px solid var(--form-border-color);
+  border-radius: 15px;
   background-color: var(--actient-bg-color);
 }
 
 .auth__control {
-  margin-top: 13px;
   display: flex;
+  margin: 13px 0 0 0;
   justify-content: space-between;
   font-size: 13px;
 }
 
 .auth__button {
   background-color: inherit;
-  border: none;
   color: var(--form-accent-color)
 }
 
@@ -67,13 +66,13 @@
 }
 
 .confirm-mail__title {
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   font-size: 40px;
 }
 
 .confirm-mail__description {
-  font-size: 30px;
   text-wrap: no-wrap;
+  font-size: 30px;
 }
 
 .confirm-mail.confirm-mail__message_visible {

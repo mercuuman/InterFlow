@@ -1,0 +1,12 @@
+mixin confirm-email_form(emailURL = 'https://mail.google.com/mail/u/0/#inbox')
+  h2.confirm-email__title
+    | Подтвердите email
+    span.confirm-email__email
+      a.confirm-email__link(href=emailURL) email@bk.ru
+      // здесь нужна ссылка на почтовый сервис пользователя
+  form.form(name='confirm-email')
+    label.form__label
+      input.form__input(type="text" name="user_password" placeholder=" " required)
+      span.form__placeholder code
+    button.button.form__button.button_color_green(type="submit" name="submit") Confirm
+
