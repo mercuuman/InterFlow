@@ -38,7 +38,7 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             filename: 'auth.html',
-            template: './src/pages/auth/auth.pug',
+            template: './src/pages/auth.pug',
             chunks: ['vendor', 'auth'],
             minify: false,
         }),

@@ -1,17 +1,16 @@
 .search__container {
   position: relative;
-  border: 2px solid var(--form-accent-color);
   padding: 10px 5px 10px 15px;
+  border: 2px solid var(--form-accent-color);
   border-radius: 10px;
   transition: border-color 0.2s;
 }
 
 .search__button_type_clear {
   position: absolute;
-  background-color: inherit;
-  border: none;
   right: 0;
   top: 8px;
+  background-color: inherit;
 }
 
 .search__button_type_clear:hover {
@@ -23,10 +22,10 @@
 }
 
 .search__input {
-  font-size: 20px;
   width: calc(100% - 40px);
   border: none;
   background-color: inherit;
+  font-size: 20px;
 }
 
 .search__container:focus-within {

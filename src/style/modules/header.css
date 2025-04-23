@@ -4,8 +4,8 @@
   grid-template-rows: auto;
   justify-items: center;
   align-items: end;
-  background-color: var(--highlight-bg-color);
   padding: 10px;
+  background-color: var(--highlight-bg-color);
   grid-template-areas:
   "logo control";
 }
@@ -18,8 +18,8 @@
 
 .header__control {
   grid-area: control;
-  width: 100%;
   display: flex;
+  width: 100%;
   align-self: flex-end;
   gap: 30px;
 }
@@ -39,8 +39,8 @@
 .header__link {
   display: inline-block;
   position: relative;
+  padding: 0 0 0 15px;
   font-size: 16px;
-  padding-left: 15px;
   color: var(--main-text-color);
 }
 
@@ -71,18 +71,16 @@
 }
 
 .header__button {
-  text-wrap: nowrap;
-  font-size: 18px;
-  border: none;
   min-width: 75px;
   min-height: 40px;
   border-radius: 20px;
+  text-wrap: nowrap;
+  font-size: 18px;
 }
 
 .header__button_login {
   background-color: inherit;
   transition: background-color 0.3s;
-
 }
 
 .header__button_login:hover {
@@ -92,7 +90,3 @@
 .header__button_signup {
   background-color: var(--actien-color);
 }
-
-
-
-
