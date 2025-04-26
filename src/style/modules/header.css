@@ -1,4 +1,6 @@
 .header {
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: clamp(240px, 25%, 350px) 1fr;
   grid-template-rows: auto;
@@ -13,7 +15,6 @@
 .header__logo {
   grid-area: logo;
   width: calc(100% - 20px);
-  padding: 5px 0;
 }
 
 .header__control {
@@ -21,11 +22,16 @@
   display: flex;
   width: 100%;
   align-self: flex-end;
-  gap: 30px;
+  gap: 15px;
+}
+
+.header__search {
+  flex-grow: 1;
+  padding: 0 0 0 5px;
+  min-inline-size: 200px;
 }
 
 .header__navigation {
-  flex-grow: 1;
   align-self: flex-end;
   padding: 0 0 0 10px;
 }
@@ -33,14 +39,14 @@
 .header__list {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
 }
 
 .header__link {
   display: inline-block;
   position: relative;
   padding: 0 0 0 15px;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--main-text-color);
 }
 
@@ -49,8 +55,8 @@
   position: absolute;
   width: 5px;
   height: 5px;
-  top: 7px;
-  left: 0;
+  top: 8px;
+  left: 2px;
   border: 1px solid currentColor;
   border-radius: 100%;
 }

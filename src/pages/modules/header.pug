@@ -8,11 +8,13 @@ header.header
     nav.header__navigation
       ul.header__list
         li.header__list-item
-          a.link.header__link(href='https://yandex.ru/search/?clid=9582&text=stackoverflow&l10n=ru&lr=51').header__link_type_active home
+          a.link.header__link Categories
         li.header__list-item
-          a.link.header__link about
+          a.link.header__link Groups
         li.header__list-item
-          a.link.header__link donate
+          a.link.header__link Сommunity
+    .header__search
+      include ../components/search.pug
     .header__auth
       if isLogin
         button.button.header__button.header__button_login(type='button') log in

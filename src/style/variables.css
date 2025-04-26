@@ -34,7 +34,8 @@
 
   --icon-close-color: #109440;
   --icon-close-color-hover: #12ab4a;
-  --placeholder-color: #88bd9b;
+  /* --placeholder-color: #88bd9b; */
+  --placeholder-color: #51884c;
   --outline-color: #000000;
 
   --topics-button-partitions-bg-color: #bfe4bc;
