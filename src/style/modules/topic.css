@@ -1,6 +1,7 @@
 .topic__container {
   display: flex;
   flex-direction: column;
+  height: 128px;
 }
 
 .topic__outside {
@@ -31,7 +32,7 @@
 
 .topic__title {
   grid-area: title;
-  font-size: 20px;
+  font-size: 26px;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -42,12 +43,12 @@
   grid-area: description;
   display: -webkit-box;
   padding: 2px 0 0 0;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--topic-description-color);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .topic__tags-list {

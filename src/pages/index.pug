@@ -10,28 +10,22 @@ block header
   include ./modules/header.pug
 
 block content
-  section.controls
-    if false
-      button.button.controls__button_type_nav(type='button') 123
-    .controls__search
-      include ./components/search.pug
-    button.button.button_color_green.controls__button_type_create-topic(type='button') Create
   aside.navigator
     .navigator__container
       nav.navigator__navigtion
         ol.navigator__list
           li.navigator__list-item
-            a.link.navigator__link(href='#') Home
+            a.link.navigator__link.navigator__link_type_active(href='#') Home
           li.navigator__list-item
-            a.link.navigator__link(href='#') Main
-          li.navigator__list-item
-            a.link.navigator__link(href='#') Categories
-          li.navigator__list-item
-            a.link.navigator__link(href='#') Another
-          li.navigator__list-item
-            a.link.navigator__link(href='#') Groups
+            a.link.navigator__link(href='#') Tags
   .content__wrapper
     section.topics
+      .topics__controls
+        .topics__button-partitions
+          button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
+          button.button.topics__button_type_partitions(type='button') Top
+          button.button.topics__button_type_partitions(type='button') Hot
+        button.button.topics__button_type_create-topic(type='button') Create topic
       .topics__list
         .topic__container
           .topic__outside

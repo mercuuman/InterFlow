@@ -63,7 +63,13 @@
 }
 
 .button_color_yellow {
+  background-color: var(--highlight-color);
+  transition: background-color 0.3s;
+}
 
+.button_color_yellow:hover,
+.button_color_yellow:focus {
+  background-color: var(--dim-highlight-color);
 }
 
 .font-weight_type_bold {

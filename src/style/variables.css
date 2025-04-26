@@ -8,6 +8,7 @@
   --main-color: #000;
   --hidden-color: #bebebe;
   --actien-color: #109440;
+  --dim-actien-color: #7bc081;
   --actien-color-hover: #12ab4a;
   --highlight-color: #FFC501;
   --dim-highlight-color: #ffdb63;
@@ -20,7 +21,7 @@
   --button-main-bg-color-hover: #12ab4a;
   --button-additional-bg-color: #ffc501;
   --button-additional-bg-color-hover: #ffdb63;
-
+  --button-partitions-bg-color: #add1ad;
   --main-button-color: #fff;
   --actient-button-color: #000;
 
@@ -36,11 +37,14 @@
   --placeholder-color: #88bd9b;
   --outline-color: #000000;
 
+  --topics-button-partitions-bg-color: #bfe4bc;
+  --topics-button-partitions-bg-color-active: #12ab4a;
   --navigation-el-background-color: #ffc501;
-  --navigation-el-background-color-hover: #ffdb63;
+  --navigation-el-background-color-hover: #dfdfdf;
   --topic-list-border-color: #ffc501;
   --topic-description-color: #303030;
   --topic-catalog-bg-color: #ffdb63;
+
 
   --tag-text-color: #109440;
 }

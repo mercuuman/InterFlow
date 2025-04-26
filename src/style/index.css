@@ -20,11 +20,10 @@
 .main {
   flex-grow: 1;
   display: grid;
-  --catalog-list-width: clamp(355px, 50%, 600px);
-  grid-template: auto 1fr / auto var(--catalog-list-width);
+  --catalog-list-width: clamp(355px, 50%, 800px);
+  grid-template-columns: auto var(--catalog-list-width);
   justify-content: center;
   grid-template-areas:
-  'controls controls'
   'navigator content__wrapper';
 }
 
@@ -37,8 +36,8 @@
 .navigator__container {
   display: flex;
   position: sticky;
-  top: 60px;
-  padding: 60px 0 0 0;
+  top: 20px;
+  padding: 30px 0 0 0;
   justify-content: right;
 }
 
@@ -58,8 +57,11 @@
   display: block;
   padding: 5px 8px;
   border-radius: 5px;
-  background-color: var(--navigation-el-background-color);
   transition: background-color 0.1s;
+}
+
+.navigator__link_type_active {
+  font-weight: 700;
 }
 
 .navigator__link:hover {
@@ -71,37 +73,60 @@
   font-weight: 700;
 }
 
+.topics {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.topics__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 27px 0 0 0;
+  gap: 30px;
+}
+
+.topics__button-partitions {
+  display: flex;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 3px 3px;
+  background-color: var(--topics-button-partitions-bg-color);
+}
+
+.topics__button_type_partitions {
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: inherit;
+}
+
+.topics__button_type_partitions.topics__button_type_partitions_active {
+  background-color: var(--topics-button-partitions-bg-color-active);
+  font-weight: 700;
+}
+
 .content__wrapper {
   grid-area: content__wrapper;
   padding: 0 0 0 60px;
   background-color: inherit;
 }
 
-.controls {
-  grid-area: controls;
-  display: flex;
-  position: sticky;
-  top: 0;
-  padding: 20px 0 10px 0;
-  align-items: end;
-  gap: 10px;
-  background-color: var(--main-bg-color);
-}
-
-.controls__search {
-  grid-area: search;
-  flex-grow: 1;
-}
-
-.controls__button_type_create-topic {
+.topics__button_type_create-topic {
   height: 100%;
   border-radius: 10px;
-  background-color: var(--button-main-bg-color);
+  padding: 8px 15px;
   font-size: 18px;
+  min-width: 135px;
+  background-color: var(--topics-button-partitions-bg-color-active);
+}
+
+.topics__button_type_create-topic:hover {
+  background-color: var(--form-accent-color-hover);
 }
 
 .topics__list {
   display: grid;
-  grid-auto-rows: 100px; /* Размер топики в высоту на главной странице */
+  grid-auto-rows: auto; /* Размер топики в высоту на главной странице */
   gap: 5px
 }
