@@ -3,7 +3,8 @@
   --actien-font: 'Noto Serif';
 
   --main-bg-color: #f1f1f1;
-  --actient-bg-color: #fff;
+  /* --main-bg-color: #fff;
+  --actient-bg-color: #ebebeb; */
   --highlight-bg-color: #FFC501;
   --main-color: #000;
   --hidden-color: #bebebe;
@@ -22,7 +23,7 @@
   --button-additional-bg-color: #ffc501;
   --button-additional-bg-color-hover: #ffdb63;
   --button-partitions-bg-color: #add1ad;
-  --main-button-color: #fff;
+  --main-button-color: #f1f1f1;
   --actient-button-color: #000;
 
   --form-placeholder-color: #88bd9b;
@@ -38,8 +39,12 @@
   --placeholder-color: #51884c;
   --outline-color: #000000;
 
-  --topics-button-partitions-bg-color: #bfe4bc;
-  --topics-button-partitions-bg-color-active: #12ab4a;
+  /* --topics-button-partitions-bg-color: #bfe4bc; */
+  --topics-button-partitions-bg-color: #68cf5f;
+  --topics-control-button-bg-color: #12ab4a;
+  --topics-control-button-bg-color-hover: #29bb5e;
+  /* --topics-control-unselected-button-bg-color-hover: #a5ce9d; */
+  --topics-control-unselected-button-bg-color-hover: #83da71;
   --navigation-el-background-color: #ffc501;
   --navigation-el-background-color-hover: #dfdfdf;
   --topic-list-border-color: #ffc501;
@@ -47,5 +52,9 @@
   --topic-catalog-bg-color: #ffdb63;
 
 
-  --tag-text-color: #109440;
+  /* --tag-text-color: #000;
+  --tag-bg-color: #bfe4bc; */
+  --tag-text-color: #000;
+  --tag-bg-color: #dfdfdf;
+  --tag-bg-color-hover: #dadada;
 }

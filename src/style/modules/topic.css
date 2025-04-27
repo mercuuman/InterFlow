@@ -1,7 +1,8 @@
 .topic__container {
   display: flex;
   flex-direction: column;
-  height: 128px;
+  min-height: 135px;
+  /* min-height: 100vh; */
 }
 
 .topic__outside {
@@ -21,6 +22,7 @@
   flex-grow: 1;
   display: grid;
   grid-template: auto 1fr / 1fr 40px;
+  gap: 2px;
   padding: 8px;
   background-color: var(--topic-catalog-bg-color);
   border-radius: 10px;

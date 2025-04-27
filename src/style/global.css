@@ -83,8 +83,14 @@
 
 .tag__button {
   font-size: 14px;
-  background-color: inherit;
+  background-color: var(--tag-bg-color);
   border: none;
-  padding: 0;
+  padding: 3px;
+  border-radius: 3px;
   color: var(--tag-text-color);
+  transition: background-color 0.1s;
+}
+
+.tag__button:hover {
+  background-color: var(--tag-bg-color-hover);
 }

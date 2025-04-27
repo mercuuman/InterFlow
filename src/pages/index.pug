@@ -17,29 +17,50 @@ block content
           li.navigator__list-item
             a.link.navigator__link.navigator__link_type_active(href='#') Home
           li.navigator__list-item
+            a.link.navigator__link(href='#') Categories
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Groups
+          li.navigator__list-item
+            a.link.navigator__link(href='#') Сommunity
+          li.navigator__list-item
             a.link.navigator__link(href='#') Tags
   .content__wrapper
     section.topics
-      .topics__controls
-        .topics__button-partitions
-          button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
-          button.button.topics__button_type_partitions(type='button') Top
-          button.button.topics__button_type_partitions(type='button') Hot
-        button.button.topics__button_type_create-topic(type='button') Create topic
+      .topics__header
+        h2.topics__title Title topics
+        .topics__controls
+          .topics__button-partitions
+            button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
+            button.button.topics__button_type_partitions(type='button') Top
+            button.button.topics__button_type_partitions(type='button') Hot
+          button.button.topics__button_type_create-topic(type='button') Create topic
       .topics__list
         .topic__container
           .topic__outside
-            a.link.topic__owner(href='#owner') owner
+            a.link.topic__owner(href='#owner') KEK
             ul.topic__tags-list
               li.topic__tag
-                button.button.tag__button(type='button') @tag1
-              li.topic__tag
-                button.button.tag__button(type='button') @tag2
+                button.button.tag__button(type='button') nginx
           .topic__content
             h2.topic__title
-              a.link.topic__link(href='#owner') Title
-            p.topic__description Очень длинное описание карточки, которое может не поместиться в отведённое пространство и должно быть обрезано с добавлением многоточия в конце.
-
+              a.link.topic__link(href='#owner') Nginx - убрать слеш из адреса, если запрашивается не папка
+            p.topic__description
+              | Вся проблема в том, что если раскомментировать эти две строки, при запросе любой страницы я получаю ошибку 404. Хотя проверка на наличие папки это банально.
+              | По сути, мне нужно, чтобы все страницы были доступны только без слеша в конце, кроме папок. А как оно внутри, меня не волнует.
+        .topic__container
+          .topic__outside
+            a.link.topic__owner(href='#owner') Рудеус Грейрат
+            ul.topic__tags-list
+              li.topic__tag
+                button.button.tag__button(type='button') c++
+              li.topic__tag
+                button.button.tag__button(type='button') unreal-engine-5
+          .topic__content
+            h2.topic__title
+              a.link.topic__link(href='#owner') Движение камеры | Отслеживание движения камеры работает только при зажатой кнопке мыши. UE5 | C++
+            p.topic__description
+              | Здравствуйте коллеги перехожу с unity на UE5, так что могу где-то быть не точным.
+              | Я создал Pawn(Не обращайте внимание что класс называется MyActor, изначально случайно создал Actor , поменял на Pawn)
 block footer
   include ./modules/mainFooter.pug
 

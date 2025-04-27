@@ -6,7 +6,7 @@
   grid-template-rows: auto;
   justify-items: center;
   align-items: end;
-  padding: 10px;
+  padding: 10px 15px;
   background-color: var(--highlight-bg-color);
   grid-template-areas:
   "logo control";
@@ -27,8 +27,9 @@
 
 .header__search {
   flex-grow: 1;
-  padding: 0 0 0 5px;
+  padding: 0 15px 0 25px;
   min-inline-size: 200px;
+  align-self: flex-end;
 }
 
 .header__navigation {
@@ -95,4 +96,10 @@
 
 .header__button_signup {
   background-color: var(--actien-color);
+}
+
+.header__bell {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
