@@ -10,6 +10,7 @@ const config = {
         vendor: './src/scripts/vendor.ts',
         index: './src/scripts/index.ts',
         auth: './src/scripts/auth.ts',
+        profile: './src/scripts/profile.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -42,6 +43,12 @@ const config = {
             chunks: ['vendor', 'auth'],
             minify: false,
         }),
+        new HtmlWebpackPlugin({
+          filename: 'profile.html',
+          template: './src/pages/profile.pug',
+          chunks: ['vendor', 'profile'],
+          minify: false,
+      }),
     ],
     module: {
         rules: [

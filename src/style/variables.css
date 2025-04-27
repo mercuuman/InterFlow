@@ -7,6 +7,7 @@
   --actient-bg-color: #ebebeb; */
   --highlight-bg-color: #FFC501;
   --main-color: #000;
+  --additional-color: #272727;
   --hidden-color: #bebebe;
   --actien-color: #109440;
   --dim-actien-color: #7bc081;
@@ -32,6 +33,7 @@
   --form-error-color: #ec1717;
   --form-accent-color-hover: #12ab4a;
   --form-button-text-color: #000;
+  --form-actient-bg-color: #ffffff;
 
   --icon-close-color: #109440;
   --icon-close-color-hover: #12ab4a;
@@ -51,6 +53,7 @@
   --topic-description-color: #303030;
   --topic-catalog-bg-color: #ffdb63;
 
+  --avatar-border-color: #ffc501;
 
   /* --tag-text-color: #000;
   --tag-bg-color: #bfe4bc; */

@@ -19,6 +19,8 @@
 }
 
 .main {
+  display: flex;
+  align-items: center;
   flex-grow: 1;
 }
 
@@ -41,7 +43,7 @@
   padding: 30px;
   border: 1px solid var(--form-border-color);
   border-radius: 15px;
-  background-color: var(--actient-bg-color);
+  background-color: var(--form-actient-bg-color);
 }
 
 .auth__control {

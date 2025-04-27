@@ -4,7 +4,6 @@
   border: 1px solid var();
   background-size: cover;
   background-position: center;
-  border-radius: 100%;
   background-image: url(../../image/avatar.jpg);
   border-radius: 50%;
 }

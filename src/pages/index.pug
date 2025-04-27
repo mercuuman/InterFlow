@@ -2,7 +2,6 @@ extends layout.pug
 //-  Исправить кал
 
 block meta
-
   include ./modules/meta.pug
   title= 'Inter Flow'
 
@@ -10,7 +9,7 @@ block header
   include ./modules/header.pug
 
 block content
-  aside.navigator
+  .navigator
     .navigator__container
       nav.navigator__navigtion
         ol.navigator__list
@@ -27,7 +26,7 @@ block content
   .content__wrapper
     section.topics
       .topics__header
-        h2.topics__title Title topics
+        h2.topics__title New topics
         .topics__controls
           .topics__button-partitions
             button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
