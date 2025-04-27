@@ -103,3 +103,8 @@
   height: 30px;
   cursor: pointer;
 }
+
+.header__link_type_avatar {
+  height: 48px;
+  width: 48px;
+}

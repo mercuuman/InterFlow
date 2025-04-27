@@ -5,14 +5,6 @@ header.header
     a.link(href='./')
       include ../assets/logo.pug
   .header__control
-    //- nav.header__navigation
-    //-   ul.header__list
-    //-     li.header__list-item
-    //-       a.link.header__link Categories
-    //-     li.header__list-item
-    //-       a.link.header__link Groups
-    //-     li.header__list-item
-    //-       a.link.header__link Сommunity
     .header__search
       include ../components/search.pug
     .header__auth
@@ -22,7 +14,7 @@ header.header
       else
         .header__bell
           include ../assets/svg/bell.pug
-        a.link(href='./profile.html')
+        a.link.header__link_type_avatar(href='./profile.html')
           include ../assets/profileAvatar.pug
         include ../popaps/profileControl.pug
 
