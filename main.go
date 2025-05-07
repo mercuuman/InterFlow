@@ -1,10 +1,10 @@
 package main
 
-import (
-	"fmt"
-)
+import "log"
 
 func main() {
-	f, _ := generateToken()
-	fmt.Println(f)
+	err := sendMail("devatkinkonstantin@yandex.ru", "1312dsadasd123123")
+	if err != nil {
+		log.Fatal(err) // Выведет ошибку и завершит программу
+	}
 }

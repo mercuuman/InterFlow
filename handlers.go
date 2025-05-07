@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -20,7 +21,63 @@ func loginGetHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
-//В логин пост хэндлере нужна проверка на isVerified
+// В логин пост хэндлере нужна проверка на isVerified
+func LoginPostHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		handleError(w, errors.New("method not allowed"), http.StatusMethodNotAllowed)
+		return
+	}
+
+	defer r.Body.Close()
+
+	var req UserIn
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		handleError(w, errors.New("invalid request body"), http.StatusBadRequest)
+		return
+	}
+
+	userID, hash, isVerified, err := getUserCredentials(req.Username)
+	if err != nil {
+		handleError(w, err, http.StatusUnauthorized)
+		return
+	}
+
+	if !isVerified {
+		handleError(w, errors.New("email not verified"), http.StatusUnauthorized)
+		warnNotVerified()
+		return
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(req.Password)); err != nil {
+		handleError(w, errors.New("invalid password"), http.StatusUnauthorized)
+		return
+	}
+
+	accessToken, err := GenerateJWT(userID, 15*time.Minute)
+	if err != nil {
+		handleError(w, err, http.StatusInternalServerError)
+		return
+	}
+
+	refreshToken, err := GenerateJWT(userID, 7*24*time.Hour)
+	if err != nil {
+		handleError(w, err, http.StatusInternalServerError)
+		return
+	}
+
+	http.SetCookie(w, &http.Cookie{
+		Name:     "refresh_token",
+		Value:    refreshToken,
+		HttpOnly: true,
+		SameSite: http.SameSiteStrictMode,
+		Expires:  time.Now().Add(7 * 24 * time.Hour),
+		Path:     "/",
+	})
+
+	json.NewEncoder(w).Encode(map[string]string{
+		"access_token": accessToken,
+	})
+}
 
 // Обработчик для регистрации пользователя signup POST
 func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,6 +85,7 @@ func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
 		handleError(w, errors.New("method not allowed"), http.StatusMethodNotAllowed)
 		return
 	}
+
 	defer r.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 
@@ -60,6 +118,7 @@ func SignUpPostHandler(w http.ResponseWriter, r *http.Request) {
 	response := map[string]string{
 		"message": "User registered successfully. Please check your email to complete the process.",
 	}
+
 	json.NewEncoder(w).Encode(response)
 }
 
@@ -70,7 +129,9 @@ func VerifyEmailHandler(w http.ResponseWriter, r *http.Request) {
 		handleError(w, errors.New("Missing token"), http.StatusBadRequest)
 		return
 	}
+
 	userID, err := VerifyEmail(token)
+
 	if err != nil {
 
 		if errors.Is(err, ErrInvalidToken) {
@@ -87,6 +148,7 @@ func VerifyEmailHandler(w http.ResponseWriter, r *http.Request) {
 		handleError(w, err, http.StatusInternalServerError)
 		return
 	}
+
 	refreshToken, err := GenerateJWT(userID, 7*24*time.Hour)
 	if err != nil {
 		handleError(w, err, http.StatusInternalServerError)
@@ -110,12 +172,14 @@ func VerifyEmailHandler(w http.ResponseWriter, r *http.Request) {
 // !!! на доработке
 func RefreshAccessTokenHandler(w http.ResponseWriter, r *http.Request) {
 	cookie, err := r.Cookie("refresh_token")
+
 	if err != nil {
 		handleError(w, errors.New("missing refresh token"), http.StatusUnauthorized)
 		return
 	}
 
 	accessToken, err := RefreshAccessToken(cookie.Value)
+
 	if err != nil {
 		handleError(w, errors.New("invalid refresh token"), http.StatusUnauthorized)
 		return
@@ -148,4 +212,67 @@ func RefreshTokensHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(map[string]string{"access_token": accessToken})
+}
+
+func LogoutHandler(w http.ResponseWriter, r *http.Request) {
+	// Удаляем refresh token cookie
+	http.SetCookie(w, &http.Cookie{
+		Name:     "refresh_token",
+		Value:    "",
+		HttpOnly: true,
+		MaxAge:   -1,
+		Expires:  time.Now().Add(-24 * time.Hour),
+	})
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(map[string]string{"message": "Successfully logged out"})
+}
+
+func ValidateTokenHandler(w http.ResponseWriter, r *http.Request) {
+	// Получаем токен из заголовка Authorization
+	authHeader := r.Header.Get("Authorization")
+	if authHeader == "" {
+		handleError(w, errors.New("missing authorization header"), http.StatusUnauthorized)
+		return
+	}
+
+	// Проверяем формат Bearer token
+	tokenParts := strings.Split(authHeader, " ")
+	if len(tokenParts) != 2 || tokenParts[0] != "Bearer" {
+		handleError(w, errors.New("invalid authorization format"), http.StatusUnauthorized)
+		return
+	}
+
+	// Проверяем валидность токена
+	claims, err := ValidateAccessToken(tokenParts[1])
+	if err != nil {
+		handleError(w, errors.New("invalid access token"), http.StatusUnauthorized)
+		return
+	}
+
+	// Возвращаем информацию о токене
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"valid": true,
+		"user":  claims.Subject,
+	})
+}
+
+func ValidateRefreshTokenHandler(w http.ResponseWriter, r *http.Request) {
+	// Получаем токен из cookie
+	cookie, err := r.Cookie("refresh_token")
+	if err != nil {
+		handleError(w, errors.New("missing refresh token"), http.StatusUnauthorized)
+		return
+	}
+
+	// Проверяем валидность токена
+	_, err = ValidateRefreshToken(cookie.Value)
+	if err != nil {
+		handleError(w, errors.New("invalid refresh token"), http.StatusUnauthorized)
+		return
+	}
+
+	// Возвращаем информацию о токене
+	w.WriteHeader(http.StatusOK)
 }

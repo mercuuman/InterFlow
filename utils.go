@@ -28,7 +28,7 @@ type Claims struct {
 	jwt.RegisteredClaims
 }
 
-// токен для uRL в письме
+// Токен для uRL в письме
 func generateToken() (string, error) {
 	bytes := make([]byte, 32)
 	_, err := rand.Read(bytes)
@@ -100,5 +100,37 @@ func ParseRefreshToken(refreshToken string) (*Claims, error) {
 	if !ok {
 		return nil, errors.New("invalid token claims")
 	}
+	return claims, nil
+}
+
+func ValidateAccessToken(tokenStr string) (*jwt.RegisteredClaims, error) {
+	token, err := jwt.ParseWithClaims(tokenStr, &jwt.RegisteredClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return jwtSecret, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	claims, ok := token.Claims.(*jwt.RegisteredClaims)
+	if !ok || !token.Valid {
+		return nil, errors.New("invalid token")
+	}
+
+	return claims, nil
+}
+
+func ValidateRefreshToken(tokenStr string) (*jwt.RegisteredClaims, error) {
+	token, err := jwt.ParseWithClaims(tokenStr, &jwt.RegisteredClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return jwtSecret, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	claims, ok := token.Claims.(*jwt.RegisteredClaims)
+	if !ok || !token.Valid {
+		return nil, errors.New("invalid refresh token")
+	}
+
 	return claims, nil
 }

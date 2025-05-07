@@ -64,3 +64,13 @@ func sendMail(userEmail string, userToken string) error {
 	log.Println("Письмо успешно отправлено на", userEmail)
 	return nil
 }
+
+// Отправка уведомления при попытке входа на не верифицированный аккаунт
+func warnNotVerified() error {
+	return nil
+}
+
+// Повторная отправка письма
+func resendLetter() {
+
+}

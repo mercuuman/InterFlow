@@ -91,14 +91,17 @@ func RegisterUser(user UserIn) (string, error) {
 		log.Printf("Error inserting user: %v", err)
 		return "", err
 	}
+
 	token, err := createVerificationToken(ctx, tx, userId)
 	if err != nil {
 		log.Printf("Error creating verification token: %v", err)
 		return "", err
 	}
+
 	if err := tx.Commit(ctx); err != nil {
 		return "", fmt.Errorf("error committing transaction: %w", err)
 	}
+
 	return token, nil
 }
 
@@ -141,4 +144,17 @@ func VerifyEmail(token string) (int, error) {
 	}
 	VerifyUser(ctx, db, UserID)
 	return UserID, nil
+}
+
+func getUserCredentials(username string) (userID int, hash string, isVerified bool, err error) {
+	query := `SELECT UserID, PasswordHash, isVerified FROM users WHERE Username = $1 AND isDeleted = FALSE LIMIT 1`
+
+	err = db.QueryRow(context.Background(), query, username).Scan(&userID, &hash, &isVerified)
+	if err != nil {
+		if errors.Is(err, pgx.ErrNoRows) {
+			return 0, "", false, fmt.Errorf("user not found or deleted")
+		}
+		return 0, "", false, err
+	}
+	return
 }
