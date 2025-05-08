@@ -1,16 +1,37 @@
+.form__wrapper {
+  padding: 10px 0 0 0;
+}
+
 .form__content {
   display: flex;
   flex-direction: column;
-  gap: 12px
+  gap: 12px;
+}
+
+.form__title {
+  font-size: 30px;
 }
 
 .form__label {
   display: flex;
-  position: relative;
   flex-direction: column;
+  cursor: default;
+}
+
+.form__input-wrapper {
+  position: relative;
+  cursor: text;
+}
+
+.form__input-title {
+  cursor: text;
+  align-self: flex-start;
+  padding: 3px 0 5px;
+  font-size: 18px;
 }
 
 .form__input {
+  position: relative;
   z-index: 1;
   padding: 19px 5px 7px 15px;
   border: 2px solid var(--form-accent-color);
@@ -18,6 +39,7 @@
   font-family: var(--main-font);
   font-size: 20px;
   background-color: inherit;
+
 }
 
 .form__input:focus {
@@ -30,8 +52,8 @@
   color: var(--form-placeholder-color)
 }
 
-.form__label .form__input:focus ~ .form__placeholder,
-.form__label .form__input:not(:placeholder-shown) ~ .form__placeholder {
+.form__input-wrapper .form__input:focus ~ .form__placeholder,
+.form__input-wrapper .form__input:not(:placeholder-shown) ~ .form__placeholder {
   inset: 5px 5px;
   font-size: 13px;
 }

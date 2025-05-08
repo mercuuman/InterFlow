@@ -2,6 +2,8 @@
 @import url(./global.css);
 @import url(./modules/form.css);
 @import url(./modules/footer.css);
+@import url(./modules/returnBackButton.css);
+@import url(./assets/svg.css);
 
 .page {
   height: 100vh;
@@ -26,11 +28,24 @@
 
 .auth {
   display: flex;
-  max-width: 350px;
+  width: 350px;
   height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.auth__content-wrapper {
+  width: 100%;
+  border: 1px solid var(--form-border-color);
+  border-radius: 15px;
+  background-color: var(--form-actient-bg-color);
+  color: var(--form-main-text-color);
+}
+
+.auth__content {
+  padding: 30px;
+  position: relative;
 }
 
 .auth__logo {
@@ -39,11 +54,8 @@
   align-self: flex-start;
 }
 
-.auth__content {
-  padding: 30px;
-  border: 1px solid var(--form-border-color);
-  border-radius: 15px;
-  background-color: var(--form-actient-bg-color);
+.auth-form__title {
+  margin: 0 0 10px 0;
 }
 
 .auth__control {
@@ -63,22 +75,30 @@
   color: var(--form-accent-color-hover)
 }
 
-.confirm-mail {
-  display: none;
+.confirm-email-form__title{
+  margin: 0 0 15px;
 }
 
-.confirm-mail__title {
-  margin: 0 0 10px;
-  font-size: 40px;
+.confirm-email-form__description {
+  font-size: 18px;
 }
 
-.confirm-mail__description {
-  text-wrap: no-wrap;
-  font-size: 30px;
+.confirm-emaill-form__link {
+  color: currentColor;
+  font-style: italic;
+  font-weight: 700;
 }
 
-.confirm-mail.confirm-mail__message_visible {
-  visibility: visible;
+.confirm-email-form__label {
+  margin: 50px 0;
+}
+
+.confirm-email-form__button {
+
+}
+
+.forgot-password-form__title {
+  margin-bottom: 25px;
 }
 
 .logo {

@@ -1,17 +1,18 @@
 mixin autorisation_form
-  .auth__form
-    form.form(name=`autorisation_form` novalidate)
-      .form__content
-        label.form__label
-          input.input.form__input(type="text" name="user_name" placeholder=" " required)
-          span.form__placeholder nickname
-        label.form__label
-          input.input.form__input(type="email" name="user_email" placeholder=" " required)
-          span.form__placeholder email
-        label.form__label
-          input.input.form__input(type="password" name="user_password" placeholder=" " required)
-          span.form__placeholder password
-      button.button.form__button.button_color_green(type="submit" name="submit") log in
-  .auth__control
-    button#button_type_recover-password.button.auth__button(type='button') Forgot password?
-    button#button_type_open-change-form.button.auth__button(type='button') sign up
+  include ./form-input.pug
+  .form__wrapper
+    h2.form__title.auth-form__title
+      | Авторизация
+    .auth__form
+      form.form(name=`autorisation_form` novalidate)
+        .form__content
+          label.form__label
+            +form_input('nickname', 'text', 'nickname')
+          label.form__label
+            +form_input('email', 'email', 'email')
+          label.form__label
+            +form_input('password', 'password', 'password')
+        button.button.form__button.button_color_green(type="submit" name="submit") log in
+    .auth__control
+      button#button_type_recover-password.button.auth__button(type='button') Forgot password?
+      button#button_type_open-change-form.button.auth__button(type='button') sign up

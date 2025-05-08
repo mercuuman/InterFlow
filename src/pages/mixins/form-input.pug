@@ -1,0 +1,4 @@
+mixin form_input(placeholder, type, name)
+  .form__input-wrapper
+    input.form__input(type=type, name=`user_${name}` placeholder=" " required)
+    span.form__placeholder= placeholder

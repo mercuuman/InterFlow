@@ -27,6 +27,7 @@
   --main-button-color: #f1f1f1;
   --actient-button-color: #000;
 
+  --button-return-back-bg-color: #f0f0f0;
   --form-placeholder-color: #88bd9b;
   --form-border-color: #ebebeb;
   --form-accent-color: #109440;
@@ -34,7 +35,10 @@
   --form-accent-color-hover: #12ab4a;
   --form-button-text-color: #000;
   --form-actient-bg-color: #ffffff;
+  --form-main-text-color: #1f1f1f;
 
+  --svg-arrow-left-fill-color: #1f1f1f;
+  --svg-arrow-left-fill-color-hover: #3a3a3a;
   --icon-close-color: #109440;
   --icon-close-color-hover: #12ab4a;
   /* --placeholder-color: #88bd9b; */
