@@ -1,13 +1,14 @@
 mixin confirm-email_form(emailURL = 'https://mail.google.com/mail/u/0/#inbox')
   include ./form-input.pug
-  .form__wrapper
+  .form__wrapper.confirm-email-form__wrapper
     include ../components/returnBackButton
-    h2.form__title.confirm-email-form__title
-      | Подтверждение почты
-    p.confirm-email-form__description Код с подтверждением отправлен на почту #[a.link.confirm-emaill-form__link(href=emailURL) email@bk.ru]
-      // здесь нужна ссылка на почтовый сервис пользователя
-    form.form(name='confirm-email')
+    .form__information.confirm-email-form__information
+      h2.form__title.confirm-email-form__title
+        | Подтверждение почты
+      p.confirm-email-form__description Код с подтверждением отправлен на почту #[a.link.confirm-emaill-form__link(href=emailURL) email@bk.ru]
+        // - здесь нужна ссылка на почтовый сервис пользователя
+    form.form.form_type_confirm-email(name='confirm-email')
       label.form__label.confirm-email-form__label
         +form_input('code', 'text', 'code')
-      button.button.form__button.confirm-email-form__button.button_color_green(type="submit" name="submit") Подтвердить
+      button.button.form__button.confirm-email-form__button_type_submit.button_color_green(type="submit" name="submit") Подтвердить
 

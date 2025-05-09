@@ -44,7 +44,7 @@
 }
 
 .auth__content {
-  padding: 30px;
+  padding: 35px 35px 20px;
   position: relative;
 }
 
@@ -54,29 +54,38 @@
   align-self: flex-start;
 }
 
-.auth-form__title {
+.autorisation-form__information {
   margin: 0 0 10px 0;
 }
 
-.auth__control {
+.autorisation-form__button_type_submit {
+  margin: 20px 0 0 0;
+}
+
+.autorisation__control {
   display: flex;
   margin: 13px 0 0 0;
   justify-content: space-between;
   font-size: 13px;
 }
 
-.auth__button {
+.autorisation-form__button {
   background-color: inherit;
-  color: var(--form-accent-color)
+  color: var(--form-accent-color);
 }
 
-.auth__button:hover,
-.auth__button:focus {
+.autorisation-form__button:hover,
+.autorisation-form__button:focus {
   color: var(--form-accent-color-hover)
 }
 
-.confirm-email-form__title{
-  margin: 0 0 15px;
+.confirm-email-form__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-email-form__title {
+  margin: 0 0 10px;
 }
 
 .confirm-email-form__description {
@@ -90,15 +99,15 @@
 }
 
 .confirm-email-form__label {
-  margin: 50px 0;
+  padding: 70px 0;
 }
 
-.confirm-email-form__button {
-
+.forgot-password-form__information {
+  margin: 0 0 30px 0;
 }
 
-.forgot-password-form__title {
-  margin-bottom: 25px;
+.forgot-password-form__button_type_submit {
+  margin: 20px 0 0 0;
 }
 
 .logo {

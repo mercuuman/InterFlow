@@ -1,18 +1,18 @@
 mixin autorisation_form
   include ./form-input.pug
   .form__wrapper
-    h2.form__title.auth-form__title
-      | Авторизация
-    .auth__form
-      form.form(name=`autorisation_form` novalidate)
-        .form__content
-          label.form__label
-            +form_input('nickname', 'text', 'nickname')
-          label.form__label
-            +form_input('email', 'email', 'email')
-          label.form__label
-            +form_input('password', 'password', 'password')
-        button.button.form__button.button_color_green(type="submit" name="submit") log in
-    .auth__control
-      button#button_type_recover-password.button.auth__button(type='button') Forgot password?
-      button#button_type_open-change-form.button.auth__button(type='button') sign up
+    .form__information.autorisation-form__information
+      h2.form__title.autorisation-form__title
+        | Авторизация
+    form.form.form_type_autorisation-form(name=`autorisation_form` novalidate)
+      .form__content
+        label.form__label
+          +form_input('nickname', 'text', 'nickname')
+        label.form__label
+          +form_input('email', 'email', 'email')
+        label.form__label
+          +form_input('password', 'password', 'password')
+      button.button.form__button.autorisation-form__button_type_submit.button_color_green(type="submit" name="submit") Вход
+    .autorisation__control
+      button#button_type_recover-password.button.autorisation-form__button(type='button') Забыли пароль?
+      button#button_type_open-change-form.button.autorisation-form__button(type='button') Регистрация
