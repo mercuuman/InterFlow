@@ -7,23 +7,18 @@
 @import url(./modules/avatar.css);
 
 .page {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--main-bg-color);
 }
 
-.page__wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.main {
+.main__wrapper {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
-.main__wrapper {
+.main {
   display: flex;
   flex-direction: column;
   padding: 20px;

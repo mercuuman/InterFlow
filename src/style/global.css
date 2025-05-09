@@ -1,15 +1,12 @@
+.page__wrapper {
+  display: flex;
+  min-height: 100%;
+}
+
 .page {
+  width: 100%;
   min-inline-size: 320px;
-  min-block-size: 100dvb;
   font-family: var(--main-font, Arial, sans-serif);
-}
-
-.header {
-
-}
-
-.footer {
-
 }
 
 .logo {
