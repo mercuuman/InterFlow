@@ -31,6 +31,7 @@
   grid-area: content__wrapper;
   border: 2px solid var(--topic-list-border-color);
   border-radius: 15px;
+  width: clamp(370px, 60vw, 900px);
 }
 
 .navigator {

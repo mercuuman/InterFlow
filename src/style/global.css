@@ -78,8 +78,9 @@
 }
 
 .tag__button {
-  font-size: 14px;
+  font-size: 12px;
   background-color: var(--tag-bg-color);
+  /* background-color: inherit; */
   border: none;
   padding: 3px;
   border-radius: 3px;
