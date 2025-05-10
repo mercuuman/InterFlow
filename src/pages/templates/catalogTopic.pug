@@ -1,14 +1,31 @@
-template#catalog_topic
-  .topic__container
-    .topic__outside
-      a.link.topic__owner(href='#owner') owner
+//- template#catalog_topic
+
+.topic__container
+  .topic__content
+    button.button.topic__management(type='button')
+      include ../assets/svg/dots.pug
+    .topic__information
+      h2.topic__title
+        a.link.topic__link(href='#topic') Title 5 67 3567 3546 3567  35625467 567 3567 567 3567 3562 3423234234 234 23 4235 25235353535 35 2342 3423 423 23 r7 3567 45675456 2456 2456 245 645656456 456 2456 2456 2456 2456 546
+      .topic__description-wrapper
+        p.topic__description Очень длинное описание карточки,2456 2  22222222222222222222 33333333333333333333333 2222222222222222222222222222 456 2456 2456 245 2 4 562 45456245624562456 2456 2456 2456 2 которое может не поместиться в отведённое 77777777 656 5675673 2436 56 356 3567 56 7rgjfg jftyj fgyj fgyj fgyj fgyj fyu 6 u546ue56ue tyu rty urty urtyпространство и  5555555555555 6666666666666666666 должно быть обрезано с добавлением многоточия в конце.
+    .topic__detailed
+      a.link.topic__link_type_owner(href='#owner')
+        .topic__avatar
+          include ../assets/profileAvatar.pug
+        span.topic__nickname owner
       ul.topic__tags-list
         li.topic__tag
           button.button.tag__button(type='button') @tag1
         li.topic__tag
+          button.button.tag__button(type='button') @tag231232
+        li.topic__tag
           button.button.tag__button(type='button') @tag2
-    .topic__content
-      h2.topic__title
-        a.link.topic__link(href='#owner') Title
-      p.topic__description Очень длинное описание карточки, которое может не поместиться в отведённое пространство и должно быть обрезано с добавлением многоточия в конце.
+        li.topic__tag
+          button.button.tag__button(type='button') @tag2
+        li.topic__tag
+          button.button.tag__button(type='button') @tag2
+        li.topic__tag
+          button.button.tag__button(type='button') @tag2
+
 
