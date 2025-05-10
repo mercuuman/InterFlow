@@ -1,0 +1,8 @@
+mixin profile_avatar(avatarUrl, altText)
+  - const defaultImg = require('../image/avatar.jpg')
+  - const finalSrc = avatarUrl && avatarUrl !== '' ? avatarUrl : defaultImg
+  .profile__avatar
+    img.profile__avatar_image(
+      src=finalSrc,
+      alt=altText || "Аватар пользователя"
+    )

@@ -34,32 +34,9 @@ block content
             button.button.topics__button_type_partitions(type='button') Hot
           button.button.topics__button_type_create-topic(type='button') Create topic
       .topics__list
-        .topic__container
-          .topic__outside
-            a.link.topic__owner(href='#owner') KEK
-            ul.topic__tags-list
-              li.topic__tag
-                button.button.tag__button(type='button') nginx
-          .topic__content
-            h2.topic__title
-              a.link.topic__link(href='#owner') Nginx - убрать слеш из адреса, если запрашивается не папка
-            p.topic__description
-              | Вся проблема в том, что если раскомментировать эти две строки, при запросе любой страницы я получаю ошибку 404. Хотя проверка на наличие папки это банально.
-              | По сути, мне нужно, чтобы все страницы были доступны только без слеша в конце, кроме папок. А как оно внутри, меня не волнует.
-        .topic__container
-          .topic__outside
-            a.link.topic__owner(href='#owner') Рудеус Грейрат
-            ul.topic__tags-list
-              li.topic__tag
-                button.button.tag__button(type='button') c++
-              li.topic__tag
-                button.button.tag__button(type='button') unreal-engine-5
-          .topic__content
-            h2.topic__title
-              a.link.topic__link(href='#owner') Движение камеры | Отслеживание движения камеры работает только при зажатой кнопке мыши. UE5 | C++
-            p.topic__description
-              | Здравствуйте коллеги перехожу с unity на UE5, так что могу где-то быть не точным.
-              | Я создал Pawn(Не обращайте внимание что класс называется MyActor, изначально случайно создал Actor , поменял на Pawn)
+        include ./templates/catalogTopic.pug
+        include ./templates/catalogTopic.pug
+
 block footer
   include ./modules/mainFooter.pug
 

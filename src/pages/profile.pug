@@ -8,10 +8,14 @@ block header
   include ./modules/header.pug
 
 block content
+  include ./mixins/profile_avatar
+
   section.information
     .information__data
       .information__avatar
-        include ./assets/profileAvatar.pug
+
+        +profile_avatar('', 'Я')
+        // - Добавить рендеринг с сервера
       .information__nickname-container
         img.information__status-image(src=require('../image/crown.svg') alt='123')
         span.information__nickname Lem0n4eLL0
