@@ -1,64 +1,110 @@
 .topic__container {
-  display: flex;
-  flex-direction: column;
-  min-height: 135px;
-  /* min-height: 100vh; */
-}
-
-.topic__outside {
-  display: flex;
-  padding: 3px 5px;
-  justify-content: space-between;
-}
-
-.topic__owner {
-  color: var(--topic-actient-text-color-v2);
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 700;
+  width: 100%;
 }
 
 .topic__content {
-  flex-grow: 1;
+  position: relative;
+  min-height: 160px;
   display: grid;
-  grid-template: auto 1fr / 1fr 40px;
-  gap: 2px;
-  padding: 8px;
+  grid-template: auto 1fr / 1fr minmax(20px, auto);
+  gap: 10px 5px;
   background-color: var(--topic-main-bg-color);
+  padding: 10px;
   border-radius: 10px;
   font-size: 14px;
   grid-template-areas:
-  'title title'
-  'description .';
+  'information .'
+  'detailed detailed';
+}
+
+.topic__management {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 2px;
+  transition: background-color 0.1s;
+  background-color: inherit;
+}
+
+.topic__management:hover {
+  background-color: rgb(255, 244, 91);
+}
+
+.topic__information {
+  grid-area: information;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 0 0 5px;
+  overflow: hidden;
 }
 
 .topic__title {
-  grid-area: title;
-  font-size: 26px;
-  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
 .topic__link {
-  color: currentColor;
+  color: var(--topic-main-text-color);
+}
+
+.topic__description-wrapper {
+  width: 100%;
 }
 
 .topic__description {
-  grid-area: description;
   display: -webkit-box;
-  padding: 2px 0 0 0;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  word-break: break-all;
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--topic-actient-text-color);
+  font-size: 14px;
+}
+
+.topic__detailed {
+  grid-area: detailed;
+  gap: 20px;
+  display: flex;
+  align-items: end;
+}
+
+.topic__link_type_owner {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: var(--topic-actient-text-color-v2);
   font-size: 16px;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .topic__tags-list {
+  flex-grow: 1;
   display: flex;
-  justify-content: end;
-  gap: 5px;
+  flex-wrap: wrap-reverse;
+  align-items: flex-end;
+  gap: 2px;
+  justify-content: flex-end;
+}
+
+.topic__tag {
+  align-self: flex-end;
+  background-color: inherit;
+}
+
+.topic__avatar {
+  border: 2px solid;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
 }
