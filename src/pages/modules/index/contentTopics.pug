@@ -1,0 +1,13 @@
+mixin contentTopics
+  section.topics
+      .topics__header
+        h2.topics__title New topics
+        .topics__controls
+          .topics__button-partitions
+            button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
+            button.button.topics__button_type_partitions(type='button') Top
+            button.button.topics__button_type_partitions(type='button') Hot
+          button.button.topics__button_type_create-topic(type='button') Create topic
+      .topics__list
+        include ../../templates/catalogTopic.pug
+        include ../../templates/catalogTopic.pug

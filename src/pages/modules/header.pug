@@ -1,7 +1,7 @@
 - const isLogin = false
 
 header.header
-  include ../mixins/profile_avatar
+  include ../components/profileAvatar
   .header__logo
     a.link(href='./')
       include ../assets/logo.pug
@@ -18,7 +18,7 @@ header.header
         .header__bell
           include ../assets/svg/bell.pug
         a.link.header__link_type_avatar(href='./profile.html')
-          +profile_avatar(require('../image/avatar.jpg'), 'Я')
+          +profileAvatar(require('../image/avatar.jpg'), 'Я')
         include ../popaps/profileControl.pug
 
 

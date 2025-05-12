@@ -1,7 +1,7 @@
-mixin confirm-email_form(emailURL = 'https://mail.google.com/mail/u/0/#inbox')
-  include ./form-input.pug
+mixin confirmEmailForm(emailURL = 'https://mail.google.com/mail/u/0/#inbox')
+  include ../../components/formInput.pug
   .form__wrapper.confirm-email-form__wrapper
-    include ../components/returnBackButton
+    include ../../components/returnBackButton
     .form__information.confirm-email-form__information
       h2.form__title.confirm-email-form__title
         | Подтверждение почты
@@ -9,6 +9,6 @@ mixin confirm-email_form(emailURL = 'https://mail.google.com/mail/u/0/#inbox')
         // - здесь нужна ссылка на почтовый сервис пользователя
     form.form.form_type_confirm-email(name='confirm-email')
       label.form__label.confirm-email-form__label
-        +form_input('code', 'text', 'code')
+        +formInput('code', 'text', 'code')
       button.button.form__button.confirm-email-form__button_type_submit.button_color_green(type="submit" name="submit") Подтвердить
 

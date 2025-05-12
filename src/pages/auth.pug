@@ -5,10 +5,10 @@ block meta
   title= 'Авторизация'
 
 block content
-  include ./mixins/autorisation_form.pug
-  include ./mixins/registration_form.pug
-  include ./mixins/confirm-email_form.pug
-  include ./mixins/forgot_password_form.pug
+  include ./modules/auth/autorisationForm.pug
+  include ./modules/auth/registrationForm.pug
+  include ./modules/auth/confirmEmailForm.pug
+  include ./modules/auth/forgotPasswordForm.pug
 
 
   section.auth
@@ -16,10 +16,10 @@ block content
       include ./assets/logo.pug
     .auth__content-wrapper
       .auth__content
-        //- +confirm-email_form
-        //- +autorisation_form
-        +forgot_password_form
-        //- +registration_form
+        //- +confirmEmailForm
+        //- +autorisationForm
+        +forgotPasswordForm
+        //- +registrationForm
 
         //- На сервере нужна обработка соответсвующего mixin относительно маршрута запроса
 

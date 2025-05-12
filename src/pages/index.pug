@@ -9,33 +9,24 @@ block header
   include ./modules/header.pug
 
 block content
+  include ./modules/index/contentTopics
   .navigator
     .navigator__container
       nav.navigator__navigtion
         ol.navigator__list
           li.navigator__list-item
-            a.link.navigator__link.navigator__link_type_active(href='#') Home
+            button.button.navigator__button.navigator__button_type_active(type="button") Home
           li.navigator__list-item
-            a.link.navigator__link(href='#') Categories
+            button.button.navigator__button(href='#') Categories
           li.navigator__list-item
-            a.link.navigator__link(href='#') Groups
+            button.button.navigator__button(href='#') Groups
           li.navigator__list-item
-            a.link.navigator__link(href='#') Сommunity
+            button.button.navigator__button(href='#') Сommunity
           li.navigator__list-item
-            a.link.navigator__link(href='#') Tags
+            button.button.navigator__button(href='#') Tags
   .content
-    section.topics
-      .topics__header
-        h2.topics__title New topics
-        .topics__controls
-          .topics__button-partitions
-            button.button.topics__button_type_partitions.topics__button_type_partitions_active(type='button') New
-            button.button.topics__button_type_partitions(type='button') Top
-            button.button.topics__button_type_partitions(type='button') Hot
-          button.button.topics__button_type_create-topic(type='button') Create topic
-      .topics__list
-        include ./templates/catalogTopic.pug
-        include ./templates/catalogTopic.pug
+    +contentTopics()
+    // - Добавать другой контент на основе ссылок в
 
 block footer
   include ./modules/mainFooter.pug

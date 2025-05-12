@@ -59,23 +59,25 @@
   background-color: inherit;
 }
 
-.navigator__link {
+.navigator__button {
   display: block;
   padding: 5px 8px;
+  border: none;
   border-radius: 5px;
   transition: background-color 0.1s;
   color: currentColor;
 }
 
-.navigator__link_type_active {
-  font-weight: 700;
-}
-
-.navigator__link:hover {
+.navigator__button:hover {
   background-color: var(--index-navigation-element-bg-color);
 }
 
-.navigator__link_type_active {
+.navigator__button.navigator__button_type_active {
+  font-weight: 700;
+  cursor: default;
+}
+
+.navigator__button.navigator__button_type_active {
   background-color: var(--index-navigation-element-bg-color);
   font-weight: 700;
 }

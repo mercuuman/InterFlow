@@ -1,5 +1,5 @@
-mixin autorisation_form
-  include ./form-input.pug
+mixin autorisationForm
+  include ../../components/formInput.pug
   .form__wrapper
     .form__information.autorisation-form__information
       h2.form__title.autorisation-form__title
@@ -7,11 +7,11 @@ mixin autorisation_form
     form.form.form_type_autorisation-form(name=`autorisation_form` novalidate)
       .form__content
         label.form__label
-          +form_input('nickname', 'text', 'nickname')
+          +formInput('nickname', 'text', 'nickname')
         label.form__label
-          +form_input('email', 'email', 'email')
+          +formInput('email', 'email', 'email')
         label.form__label
-          +form_input('password', 'password', 'password')
+          +formInput('password', 'password', 'password')
       button.button.form__button.autorisation-form__button_type_submit.button_color_green(type="submit" name="submit") Вход
     .autorisation__control
       button#button_type_recover-password.button.autorisation-form__button(type='button') Забыли пароль?

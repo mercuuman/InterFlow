@@ -8,14 +8,15 @@ block header
   include ./modules/header.pug
 
 block content
-  include ./mixins/profile_avatar
+  include ./components/profileAvatar
+  include ./modules/profile/favoriteTopics
 
   section.information
     .information__data
       .information__avatar
-
-        +profile_avatar('', 'Я')
         // - Добавить рендеринг с сервера
+        +profileAvatar('', 'Я')
+      // - Добавить рендеринг с сервера
       .information__nickname-container
         img.information__status-image(src=require('../image/crown.svg') alt='123')
         span.information__nickname Lem0n4eLL0
@@ -25,13 +26,13 @@ block content
         p.information__description
           |Раньше и немного сейчас я занимался кодингом на AutoHotKey (язык для макросов, но может многие вещи, работа с Excel, браузером, COM объектами, парсинг и прочее), около 5-6 лет. Я имею опыт с HTML, CSS (препроцессор SASS/SCSS), JS, MySQL, MongoDB небольшой опыт NodeJS (ExpresJS, Electron, Next), в прошлом немного PHP (но куда больше нравится JS), есть общие понимания и познания в GIT, сейчас на проекте использую React и TypeScript.
       .information__headway
+        // - Разделить на блоки по файлам
         .information__headway-container.information__my-achievement
           h2.information__headway-title Achievement
           .information__my-achievement-container
             .achievement
               include ./assets/svg/star.pug
             .achievement__title Сдал все лабы по ППИ
-
         .information__headway-container.information__my-groups
           h2.information__headway-title Groups
           .information__my-groups-container
@@ -47,34 +48,9 @@ block content
         button.button.favorite__button_type_partitions(type='button') Goups
         button.button.favorite__button_type_partitions(type='button') My topics
     .favorite__content
-      .favorite__container
-        .topic__container
-          .topic__outside
-            a.link.topic__owner(href='#owner') Рудеус Грейрат
-            ul.topic__tags-list
-              li.topic__tag
-                button.button.tag__button(type='button') c++
-              li.topic__tag
-                button.button.tag__button(type='button') unreal-engine-5
-          .topic__content
-            h2.topic__title
-              a.link.topic__link(href='#owner') Движение камеры | Отслеживание движения камеры работает только при зажатой кнопке мыши. UE5 | C++
-            p.topic__description
-              | Здравствуйте коллеги перехожу с unity на UE5, так что могу где-то быть не точным.
-              | Я создал Pawn(Не обращайте внимание что класс называется MyActor, изначально случайно создал Actor , поменял на Pawn)
-        .topic__container
-          .topic__outside
-            a.link.topic__owner(href='#owner') ArsGeek
-            ul.topic__tags-list
-              li.topic__tag
-                button.button.tag__button(type='button') php
-              li.topic__tag
-                button.button.tag__button(type='button') php7
-          .topic__content
-            h2.topic__title
-              a.link.topic__link(href='#owner') Вывести максимальное значение массива в заданном отрезке начинающегося с числа i и имеющего длину n
-            p.topic__description
-              | Вот таким образом у меня выводит 4 элемента в диапазоне в "4 значения". То есть цикл Выводит 19,20,52,53. Не могу понять как вывести максимальное число в этом диапазоне? В данном случае будет 53 но важно чтоб где бы я не написал максимальное число оно у меня высветиться на экран. В диапазоне этих 4 значений! Помогите Пожалуйста. Обьясните на словах как это можно сделать.
+      // В этом блоке будет рендерится информация относительно блока навигации favorite__controls
+      +favoriteTopics()
+
 
 
 block footer

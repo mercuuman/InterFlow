@@ -1,0 +1,14 @@
+mixin registrationForm
+  include ../../components/formInput.pug
+  .auth__form
+    form.form(name=`registration_form` novalidate)
+      .form__content
+        label.form__label
+          +formInput("nickname", "text", "name")
+        label.form__label
+          +formInput("email", "email", "email")
+        label.form__label
+          +formInput("password", "password", "password")
+      button.button.form__button.button_color_green(type="submit" name="submit") sign up
+  .auth__control
+    button#button_type_open-change-form.button.auth__button(type='button') log in

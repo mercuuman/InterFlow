@@ -193,17 +193,15 @@
   background-color: var(--partitions-bg-color-v3);
 }
 
-.favorite__button_type_partitions_active {
-
-}
-
 .favorite__button_type_partitions.favorite__button_type_partitions_active {
   background-color: var(--partitions-bg-color-v1);
   font-weight: 700;
   cursor: default;
 }
 
-.favorite__container {
+/* favorite__topics */
+
+.favorite__list_type_topics {
   display: flex;
   flex-direction: column;
   gap: 10px;
