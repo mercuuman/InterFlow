@@ -1,15 +1,17 @@
-@import url(./variables.css);
-@import url(./global.css);
+@import url(./common/variables.css);
+@import url(./common/themes.css);
+@import url(./common/global.css);
 @import url(./modules/header.css);
 @import url(./modules/footer.css);
 @import url(./modules/topic.css);
-@import url(./modules/search.css);
-@import url(./modules/avatar.css);
+@import url(./components/search.css);
+@import url(./components/avatar.css);
 
 .page {
   display: flex;
   flex-direction: column;
-  background-color: var(--main-bg-color);
+  background-color: var(--profile-main-bg-color);
+  color: var(--profile-main-text-color);
 }
 
 .main__wrapper {
@@ -22,7 +24,6 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  max-width: 1440px;
 }
 
 .information {
@@ -47,7 +48,7 @@
 .information__avatar {
   width: clamp(9.375rem, 6.1919rem + 13.9535vw, 18.75rem);
   height: clamp(9.375rem, 6.1919rem + 13.9535vw, 18.75rem);
-  border: 3px solid var(--avatar-border-color);
+  border: 3px solid var(--profile-main-border-color);
   border-radius: 50%;
 }
 
@@ -58,7 +59,7 @@
 .information__nickname {
   font-size: 22px;
   font-weight: 700;
-  background-color: var(--avatar-border-color);
+  background-color: var(--profile-actient-bg-color);
   padding: 3px 5px;
   border-radius: 10px;
 }
@@ -79,7 +80,7 @@
 
 .information__description {
   font-size: 16px;
-  color: var(--additional-color);
+  color: var(--profile-accent-text-color);
 }
 
 .information__headway {
@@ -108,7 +109,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--avatar-border-color);
+  background-color: var(--profile-actient-bg-color);
   border-radius: 15px;
   flex-grow: 1;
   padding: 10px;
@@ -119,7 +120,7 @@
 }
 
 .information__my-groups-container {
-  background-color: var(--avatar-border-color);
+  background-color: var(--profile-actient-bg-color);
   border-radius: 15px;
   flex-grow: 1;
 }
@@ -141,7 +142,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: black;
+  background-color: currentColor;
 }
 
 .information__list-tem_type_my-groups:not(:last-of-type) {
@@ -156,7 +157,7 @@
 .achievement__title {
   font-size: 30px;
   font-weight: 700;
-  color: white;
+  color: var(--profile-accent-text-color-v2);
 }
 
 .favorite {
@@ -165,7 +166,7 @@
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
-  border-top: 2px solid var(--highlight-bg-color);
+  border-top: 2px solid var(--profile-main-border-color);
 }
 
 .favorite__button-partitions {
@@ -178,7 +179,7 @@
   gap: 5px;
   border-radius: 20px;
   padding: 3px 3px;
-  background-color: var(--topics-button-partitions-bg-color);
+  background-color: var(--partitions-bg-color-v2);
 }
 
 .favorite__button_type_partitions {
@@ -189,7 +190,7 @@
 }
 
 .favorite__button_type_partitions:hover {
-  background-color: var(--topics-control-unselected-button-bg-color-hover);
+  background-color: var(--partitions-bg-color-v3);
 }
 
 .favorite__button_type_partitions_active {
@@ -197,7 +198,7 @@
 }
 
 .favorite__button_type_partitions.favorite__button_type_partitions_active {
-  background-color: var(--topics-control-button-bg-color);
+  background-color: var(--partitions-bg-color-v1);
   font-weight: 700;
   cursor: default;
 }

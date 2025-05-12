@@ -10,8 +10,10 @@ header.header
       include ../components/search.pug
     .header__auth
       if isLogin
-        button.button.header__button.header__button_login(type='button') log in
-        button.button.header__button.header__button_signup.button_color_green(type='button') sign up
+        button.button.header__button.header__button_login.transition-bg-color_type_average(type='button')
+          | log in
+        button.button.header__button.header__button_signup.transition-bg-color_type_average(type='button')
+         | sign up
       else
         .header__bell
           include ../assets/svg/bell.pug

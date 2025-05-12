@@ -1,15 +1,16 @@
-@import url(./variables.css);
-@import url(./global.css);
+@import url(./common/variables.css);
+@import url(./common/themes.css);
+@import url(./common/global.css);
 @import url(./modules/header.css);
 @import url(./modules/footer.css);
 @import url(./modules/topic.css);
-@import url(./modules/search.css);
-@import url(./modules/avatar.css);
+@import url(./components/search.css);
+@import url(./components/avatar.css);
 
 .page {
   display: flex;
   flex-direction: column;
-  background-color: var(--main-bg-color);
+  background-color: var(--index-main-bg-color);
 }
 
 .main__wrapper {
@@ -22,14 +23,13 @@
   display: grid;
   grid-template-columns: auto 1fr;
   padding: 20px;
-  max-width: 1440px;
   grid-template-areas:
   'navigator content__wrapper';
 }
 
 .content {
   grid-area: content__wrapper;
-  border: 2px solid var(--topic-list-border-color);
+  border: 2px solid var(--index-main-border-color);
   border-radius: 15px;
   width: clamp(370px, 60vw, 900px);
 }
@@ -64,6 +64,7 @@
   padding: 5px 8px;
   border-radius: 5px;
   transition: background-color 0.1s;
+  color: currentColor;
 }
 
 .navigator__link_type_active {
@@ -71,16 +72,16 @@
 }
 
 .navigator__link:hover {
-  background-color: var(--navigation-el-background-color-hover);
+  background-color: var(--index-navigation-element-bg-color);
 }
 
 .navigator__link_type_active {
-  background-color: var(--navigation-el-background-color-hover);
+  background-color: var(--index-navigation-element-bg-color);
   font-weight: 700;
 }
 
 .topics__header {
-  background-color: var(--topic-list-border-color);
+  background-color: var(--index-actient-bg-color);
   border-radius: 10px 10px 0 0;
   padding: 15px;
 }
@@ -102,7 +103,7 @@
   gap: 5px;
   border-radius: 20px;
   padding: 3px 3px;
-  background-color: var(--topics-button-partitions-bg-color);
+  background-color: var(--partitions-bg-color-v2);
 }
 
 .topics__button_type_partitions {
@@ -113,11 +114,11 @@
 }
 
 .topics__button_type_partitions:hover {
-  background-color: var(--topics-control-unselected-button-bg-color-hover);
+  background-color: var(--partitions-bg-color-v3);
 }
 
 .topics__button_type_partitions.topics__button_type_partitions_active {
-  background-color: var(--topics-control-button-bg-color);
+  background-color: var(--partitions-bg-color-v1);
   font-weight: 700;
   cursor: default;
 }
@@ -128,12 +129,12 @@
   padding: 8px 15px;
   font-size: 18px;
   min-width: 135px;
-  background-color: var(--topics-control-button-bg-color);
+  background-color: var(--partitions-bg-color-v1);
   transition: background-color 0.3s;
 }
 
 .topics__button_type_create-topic:hover {
-  background-color: var(--topics-control-button-bg-color-hover);
+  background-color: var(--partitions-bg-color-v4);
 }
 
 .topics__list {

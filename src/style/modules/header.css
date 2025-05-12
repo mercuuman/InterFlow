@@ -8,7 +8,7 @@
   justify-items: center;
   align-items: end;
   padding: 10px 15px;
-  background-color: var(--highlight-bg-color);
+  background-color: var(--header-main-bg-color);
   grid-template-areas:
   "logo control";
 }
@@ -44,29 +44,6 @@
   gap: 15px;
 }
 
-.header__link {
-  display: inline-block;
-  position: relative;
-  padding: 0 0 0 15px;
-  font-size: 18px;
-  color: var(--main-text-color);
-}
-
-.header__link::before {
-  content: '';
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  top: 8px;
-  left: 2px;
-  border: 1px solid currentColor;
-  border-radius: 100%;
-}
-
-.header__link:hover::before {
-  background-color: currentColor;
-}
-
 .header__link_type_active::before {
   background-color: currentColor;
 }
@@ -88,15 +65,19 @@
 
 .header__button_login {
   background-color: inherit;
-  transition: background-color 0.3s;
 }
 
 .header__button_login:hover {
-  background-color: var(--dim-highlight-color);
+  background-color: var(--header-button-bg-color-v1);
 }
 
 .header__button_signup {
-  background-color: var(--actien-color);
+  color: var(--header-button-text-color);
+  background-color: var(--header-button-bg-color-v2);
+}
+
+.header__button_signup:hover {
+  background-color: var(--header-button-bg-color-v3);
 }
 
 .header__bell {

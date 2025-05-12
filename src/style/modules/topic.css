@@ -12,7 +12,7 @@
 }
 
 .topic__owner {
-  color: var(--actien-color);
+  color: var(--topic-actient-text-color-v2);
   font-size: 16px;
   font-style: italic;
   font-weight: 700;
@@ -24,7 +24,7 @@
   grid-template: auto 1fr / 1fr 40px;
   gap: 2px;
   padding: 8px;
-  background-color: var(--topic-catalog-bg-color);
+  background-color: var(--topic-main-bg-color);
   border-radius: 10px;
   font-size: 14px;
   grid-template-areas:
@@ -41,6 +41,10 @@
   overflow: hidden;
 }
 
+.topic__link {
+  color: currentColor;
+}
+
 .topic__description {
   grid-area: description;
   display: -webkit-box;
@@ -49,7 +53,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--topic-description-color);
+  color: var(--topic-actient-text-color);
   font-size: 16px;
 }
 

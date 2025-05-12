@@ -40,21 +40,21 @@
   padding: 0;
   padding: 19px 5px 7px 15px;
   width: 100%;
-  border: 2px solid var(--form-accent-color);
+  border: 2px solid var(--auth-accent-color-v1);
   border-radius: 10px;
-  font-family: var(--main-font);
+  font-family: var(--auth-accent-color-v2);
   font-size: 20px;
   background-color: inherit;
 }
 
 .form__input:focus {
-  border-color: var(--form-accent-color-hover);
+  border-color: var(--auth-accent-color-v2);
 }
 
 .form__placeholder {
   position: absolute;
   z-index: 0;
-  color: var(--form-placeholder-color)
+  color: var(--auth-input-placeholder-color)
 }
 
 .form__input-wrapper .form__input:focus ~ .form__placeholder,
@@ -70,7 +70,7 @@
 }
 
 .form__errors {
-  color: var(--form-error-color);
+  color: var(--auth-error-color);
 }
 
 .form__button {

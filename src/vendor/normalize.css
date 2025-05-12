@@ -198,6 +198,14 @@ input::placeholder {
   color: var(--placeholder-color);
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+input[type="search"]::-ms-clear {
+  display: none;
+}
+
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.

@@ -1,0 +1,105 @@
+:root {
+  /* Стили шрифтов */
+  --main-font: 'Inter', sans-serif;
+  --main-title-font: 'Noto Serif';
+
+  /* Стили цвета общие */
+  /* Новое */
+  --main-color: #f1f1f1;
+
+  --highlight-color-v1: #ffc501;
+  --highlight-color-v2: #ffdb63;
+
+  --actien-color-v1: #109440;
+  --actien-color-v2: #12ab4a;
+  --actien-color-v3: #29bb5e;
+  --actien-color-v4: #68cf5f;
+  --actien-color-v5: #7bc081;
+  --actien-color-v6: #83da71;
+  --actien-color-v7: #88bd9b;
+  --actien-color-v8: #add1ad;
+
+  --additional-color-v1: #f0f0f0;
+  --additional-color-v2: #ebebeb;
+  --additional-color-v3: #ec1717;
+  --additional-color-v4: #3a3a3a;
+  --additional-color-v5: #dfdfdf;
+  --additional-color-v6: #dadada;
+
+  --main-text-color-v1: #000000;
+  --main-text-color-v2: #272727;
+  --main-text-color-v2: #303030;
+  --main-text-color-v3: #1f1f1f;
+
+  --additional-text-color-v1: #bebebe;
+  --additional-text-color-v2: #fff;
+
+  /*GLOBAL*/
+  --main-outline-color: #000000;
+  --additional-outline-color: #000000;
+  --button-bg-color-v1: var(--actien-color-v1);
+  --button-bg-color-v2: var(--actien-color-v2);
+  --button-text-color-v1: var(--additional-text-color-v2);
+  --tag-bg-color: #dfdfdf;
+  --tag-bg-color-v2:#dadada;
+  --tag-text-color:#000000;
+  --link-main-text-color: var(--main-text-color-v1);
+
+  --search-main-color: var(--actien-color-v1);
+  --search-actient-color: var(--actien-color-v2);
+  --search-palceholder-color: var(--actien-color-v1);
+
+  --partitions-bg-color-v1: #12ab4a;
+  --partitions-bg-color-v2: #68cf5f;
+  --partitions-bg-color-v3: #83da71;
+  --partitions-bg-color-v4: #29bb5e;
+
+  /*header*/
+  --header-main-bg-color: var(--highlight-color-v1);
+  --header-main-text-color: #1f1f1f;
+  --header-button-bg-color-v1: var(--highlight-color-v2);
+  --header-button-bg-color-v2: var(--actien-color-v1);
+  --header-button-bg-color-v3: var(--actien-color-v2);;
+  --header-button-text-color: var(--additional-text-color-v2);
+
+  /*footer*/
+  --footer-main-text-color-v1: #fff;
+  --footer-main-text-color-v2: #bebebe;
+
+  /*topic*/
+  --topic-main-text-color: var(--main-text-color-v1);
+  --topic-actient-text-color: #303030;
+  --topic-actient-text-color-v2: var(--actien-color-v2);
+  --topic-main-bg-color: #ffdb63;
+  /*svg*/
+
+  /*AUTH*/
+  --auth-main-bg-color: var(--main-color);
+  --auth-actient-bg-color: #ffffff;
+  --auth-main-border-color: #ebebeb;
+  --auth-input-placeholder-color: #88bd9b;
+  --auth-accent-color-v1: var(--actien-color-v1);
+  --auth-accent-color-v2: var(--actien-color-v2);
+  --auth-accent-color-v3:#f0f0f0;
+  --auth-error-color: var(--additional-color-v3);
+  --auth-main-text-color: #1f1f1f;
+  --auth-button-text-color: var(--additional-text-color-v2);
+
+  /*INDEX*/
+  --index-main-bg-color: var(--main-color);
+  --index-actient-bg-color: var(--highlight-color-v1);
+  --index-main-text-color: var(--main-text-color-v1);
+  --index-main-border-color: var(--highlight-color-v1);
+  --index-navigation-element-bg-color: #dfdfdf;
+
+  /*PROFILE*/
+  --profile-main-bg-color: var(--main-color);
+  --profile-actient-bg-color: #ffc501;
+  --profile-main-border-color: #ffc501;
+
+
+  --profile-main-text-color: var(--main-text-color-v1);
+  --profile-accent-text-color: var(--main-text-color-v2);
+  --profile-accent-text-color-v2: #fff;
+
+}

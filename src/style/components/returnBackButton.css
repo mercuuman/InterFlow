@@ -5,11 +5,10 @@
   position: absolute;
   top: 7px;
   left: 7px;
-  transition: background-color 0.2s;
   border-radius: 50%;
   padding: 3px;
 }
 
 .button_type_return-back:hover {
-  background-color: var(--button-return-back-bg-color);
+  background-color: var(--auth-accent-color-v3);
 }

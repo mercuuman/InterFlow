@@ -3,7 +3,7 @@
   display: flex;
   padding: 25px;
   justify-content: center;
-  color: var(--hidden-color);
+  color: var(--footer-main-text-color-v2);
 }
 
 

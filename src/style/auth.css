@@ -1,8 +1,9 @@
-@import url(./variables.css);
-@import url(./global.css);
+@import url(./common/variables.css);
+@import url(./common/themes.css);
+@import url(./common/global.css);
 @import url(./modules/form.css);
 @import url(./modules/footer.css);
-@import url(./modules/returnBackButton.css);
+@import url(./components/returnBackButton.css);
 @import url(./assets/svg.css);
 
 .page {
@@ -10,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--main-bg-color);
+  background-color: var(--auth-main-bg-color);
 }
 
 .main__wrapper {
@@ -34,10 +35,10 @@
 
 .auth__content-wrapper {
   width: 100%;
-  border: 1px solid var(--form-border-color);
+  border: 1px solid var(--auth-main-border-color);
   border-radius: 15px;
-  background-color: var(--form-actient-bg-color);
-  color: var(--form-main-text-color);
+  background-color: var(--auth-actient-bg-color);
+  color: var(--auth-main-text-color);
 }
 
 .auth__content {
@@ -68,12 +69,12 @@
 
 .autorisation-form__button {
   background-color: inherit;
-  color: var(--form-accent-color);
+  color: var(--auth-accent-color-v1);
 }
 
 .autorisation-form__button:hover,
 .autorisation-form__button:focus {
-  color: var(--form-accent-color-hover)
+  color: var(--auth-accent-color-v2)
 }
 
 .confirm-email-form__wrapper {
